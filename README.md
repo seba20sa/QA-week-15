@@ -2,7 +2,7 @@
 **Version 1.0.0**
 
 ---
-
+Automation test for the URL  https://www.saucedemo.com/ with WDIO.
 
 
 ---
