@@ -1,0 +1,41 @@
+{
+  "name": "week-15-automation-test",
+  "version": "1.0.0",
+  "description": "**Version 1.0.0** --",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio run ./wdio.conf.js --spec",
+    "test-coverage": "jest --coverage --color"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seba20sa/seba20sa-QA-week-15.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seba20sa/seba20sa-QA-week-15/issues"
+  },
+  "homepage": "https://github.com/seba20sa/seba20sa-QA-week-15#readme",
+  "dependencies": {
+    "@wdio/cli": "^7.5.7",
+    "@wdio/sync": "^7.5.7",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.0",
+    "@wdio/jasmine-framework": "^7.5.3",
+    "@wdio/local-runner": "^7.5.7",
+    "@wdio/spec-reporter": "^7.5.7",
+    "babel-jest": "^26.6.3",
+    "chromedriver": "^90.0.0",
+    "jest": "^26.6.3",
+    "wdio-chromedriver-service": "^7.0.0"
+  }
+}
