@@ -52,8 +52,8 @@ describe (
         }); 
     });
     describe ('usernames AND password testing', () => {
-        beforeAll('clean errors', () => {
-            LoginPage.cleanErrorMessages();
+        afterAll('clean browser', () => {
+            browser.refresh();
         });        
         it('empty username and empty password', () => {            
             LoginPage.testLogin('', '');
