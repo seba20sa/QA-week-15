@@ -68,7 +68,16 @@ describe (
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Password is required");
                                   
-        });                      
+        });
+        it('empty username and credited password', () => {            
+            LoginPage.testLogin('', 'secret_sauce');
+            LoginPage.loginBtn.click();
+            expect(LoginPage.errorMessageContainer)
+            .toHaveText(
+                "Epic sadface: Username and password do not match any user in this service"
+            );
+                                  
+        });                       
         it('locked user with correct password we stay on the'+
             'login page and get an error message', () => {            
             LoginPage.testLogin('locked_out_user', 'secret_sauce');
