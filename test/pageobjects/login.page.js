@@ -17,9 +17,14 @@ class LoginPage {
     get userNameCredentials () { return $('#login_credentials') }
     get passwordCredentials () { return $('.login_password') }
     /*bot colum, this may be tricky contains an image*/
-    get botColum () {
-        return $('')
+    // get botColum () {
+    //     return $('')
+    // }
+    /*inventory images after clicking login*/
+    get problematicImageSource () { 
+        return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
     }
+    
     /*SETTERS*/
     setUserName (username) {
         this.userNameInput.setValue(username);
