@@ -12,30 +12,36 @@ describe (
         browser.url(urlLogin);
     });          
     describe ('user name field testing', () => {
+        afterAll('set pause for section', () => {
+            browser.pause(500);
+        }); 
         it('empty username', () => {            
             LoginPage.setUserName();
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Username is required");
             // expect(wrongUserInput.isDisplayed()).toBe('true');
-            browser.pause(500);            
+                        
         });
         it('username: undefined', () => {            
             LoginPage.setUserName(undefined);
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Username is required");
-            browser.pause(500);            
+                       
         });  
         it('username not found on the valid credentials list', () => {            
             LoginPage.setUserName('asddassda');
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Password is required");
-            browser.pause(500);            
+                       
         });                
     });
     describe ('password field testing', () => {
+        afterAll('set pause for section', () => {
+            browser.pause(500);
+        }); 
         it('empty password', () => {            
             LoginPage.setPassword();
             LoginPage.loginBtn.click();
@@ -54,13 +60,14 @@ describe (
     describe ('usernames AND password testing', () => {
         afterAll('clean browser', () => {
             browser.refresh();
+            browser.pause(1500);
         });        
         it('empty username and empty password', () => {            
             LoginPage.testLogin('', '');
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Password is required");
-            browser.pause(500);                      
+                                  
         });                      
         it('locked user with correct password we stay on the'+
             'login page and get an error message', () => {            
@@ -68,13 +75,13 @@ describe (
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Sorry, this user has been locked out.");
-            browser.pause(500);                      
+                                  
         });
         it('standar  username and password, loads the next url all'+
         ' the pictures are not the dog ones', () => {            
             LoginPage.testLogin('standard_user', 'secret_sauce');            
             expect(browser).toHaveUrl(urlInventory);
-            browser.pause(500);
+            
             browser.url(urlLogin);                
         }); 
         it('problematic username and password, loads the next url all'+
