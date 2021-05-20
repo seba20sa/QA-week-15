@@ -1,26 +1,26 @@
 class LoginPage {
     /*GETTERS*/
-    /*login logo*/
+    /*Login logo*/
     get loginLogo () { return $('.login-logo') }    
-    /*form fields*/
+    /*Form fields*/
     get userNameInput () { return $('#user-name') }
     get passwordInput () { return $('#password') }
-    /*error messages container*/
+    /*Error messages container*/
     get errorMessageContainer () { return $('.error-message-container') }
-    /*wrong input icon from FA shown when there is any incorrect input*/
+    /*Wrong input icon from FA shown when there is any incorrect input*/
     // get wrongUserInput () { return $('.fa-times-circle') }
-    /*delete error circle*/
+    /*Delete error circle*/
     get cleanErrorMessage () { return $('.error-button') }
-    /*login btn*/
+    /*Login btn*/
     get loginBtn () { return $('#login-button') }
-    /*credentials containers*/    
+    /*Credentials containers*/    
     get userNameCredentials () { return $('#login_credentials') }
     get passwordCredentials () { return $('.login_password') }
-    /*bot colum, this may be tricky contains an image*/
+    /*Bot colum, this may be tricky contains an image*/
     // get botColum () {
     //     return $('')
     // }
-    /*inventory images after clicking login*/
+    /*Inventory images after clicking login*/
     get problematicImageSource () { 
         return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
     }
