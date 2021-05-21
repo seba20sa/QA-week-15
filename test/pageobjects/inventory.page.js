@@ -28,11 +28,12 @@ class InventoryPage {
     get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack')}
     get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack')}
     get backpackItemPrice () { return $('.inventory_item_price')}
+    get backToProducts () { return $('#back-to-products')}
     /*Footer*/
-    get twitterLink () { return $('.social_twitter').$('a') }
-    get socMedFacebook () { return $('.social_facebook').$('a') }
-    get socMedLinkedin () { return $('.social_linkedin').$('a') } 
-    get swagBot  () { return $('.footer_robot') }
+    get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
+    get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
+    get linkedinLink () { return $('.social_linkedin').$('a').getAttribute('href') } 
+    get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
     /*SETTERS*/
     burgerMenuOption (option) {
