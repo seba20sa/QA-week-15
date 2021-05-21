@@ -14,32 +14,51 @@ class InventoryPage {
     get logOutBtn () { return $('#logout_sidebar_link') }
     get resetAppStateBtn () { return $('#reset_sidebar_link') }
     get productSorter () { return $('.product_sort-container') }
-    get  () { return $('') }
-    get  () { return $('') }
+    get  () { return $('') }   
     /*Body*/
     get problematicImageSource () { 
         return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
-    }
-    
+    }    
     get anyProductImg () { return $$('.inventory_item_img')}
     /*Backpack item testing for first test then make dynamic*/
-    get firstProductImg () { return $('.inventory_item_img')}
+    //$$('.inventory_item')[x].$('selector')
+    get backpackItemImg () { return $('.inventory_item_img')}
+    get backpackItemtName () { return $('.inventory_item_name')}    
     get backpackItemDescription () { return $('.inventory_item_desc')}
     get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack')}
     get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack')}
     get backpackItemPrice () { return $('.inventory_item_price')}
-
     /*Footer*/
-    get socMedTwitter () { return $('.social_twitter') }
-    get socMedFacebook () { return $('.social_facebook') }
-    get socMedLinkedin () { return $('.social_linkedin') }    
+    get twitterLink () { return $('.social_twitter').$('a') }
+    get socMedFacebook () { return $('.social_facebook').$('a') }
+    get socMedLinkedin () { return $('.social_linkedin').$('a') } 
     get swagBot  () { return $('.footer_robot') }
     get footerCredits () { return $('.footer_copy') }
+    /*SETTERS*/
+    burgerMenuOption (option) {
+        this.burgerMenuBtn.click();
+        option.click();
+    }
+    sortProducts (preference) {
+        this.productSorter.click();
+        this.productSorter.$$('option')[`${preference}`].click();
+    }
+    /*First trial with the backpack then use a variable selector */
 
     
-    /*SETTERS*/
+ 
     
     /* METHODS */
+    addItemToCart () {
+        addBackPackToCart.click();
+    }
+    openSocMed (socialmedia) {
+        socialmedia.click();
+    }
+    goBack () {
+        browser.back();
+    }
     
 }    
+
 module.exports = new InventoryPage();
