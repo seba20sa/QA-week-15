@@ -19,14 +19,14 @@ class InventoryPage {
     get problematicImageSource () { 
         return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
     }    
-    get anyProductImg () { return $$('.inventory_item_img')}
+    get anyProductImg () { return $$('.inventory_item_img') }
     /*Backpack item testing for first test then make dynamic*/
     //$$('.inventory_item')[x].$('selector')
-    get backpackItemImg () { return $('.inventory_item_img')}
-    get backpackItemtName () { return $('.inventory_item_name')}    
-    get backpackItemDescription () { return $('.inventory_item_desc')}
-    get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack')}
-    get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack')}
+    get backpackItemImg () { return $('.inventory_item_img') }
+    get backpackItemtName () { return $('.inventory_item_name') }    
+    get backpackItemDescription () { return $('.inventory_item_desc') }
+    get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack') }
+    get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack') }
     get backpackItemPrice () { return $('.inventory_item_price')}
     get backToProducts () { return $('#back-to-products')}
     /*Footer*/
@@ -36,8 +36,9 @@ class InventoryPage {
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
     /*SETTERS*/
-    burgerMenuOption (option) {
+    burgerMenuOption (option) {        
         this.burgerMenuBtn.click();
+        browser.pause(1000);
         option.click();
     }
     sortProducts (preference) {
@@ -45,10 +46,6 @@ class InventoryPage {
         this.productSorter.$$('option')[`${preference}`].click();
     }
     /*First trial with the backpack then use a variable selector */
-
-    
- 
-    
     /* METHODS */
     addItemToCart () {
         addBackPackToCart.click();
