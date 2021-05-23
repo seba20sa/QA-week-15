@@ -7,15 +7,23 @@ describe (
     const urlInventory = 'https://www.saucedemo.com/inventory.html';
     const urlCart = 'https://www.saucedemo.com/cart.html'
     const urlAbout = 'https://saucelabs.com/'
-    const itemUrl = 'https://www.saucedemo.com/inventory-item.html?id=4'
-    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'  
+    //ITEMS
+    const itemUrlFour = 'https://www.saucedemo.com/inventory-item.html?id=4'
+    // const itemUrlZero = 'https://www.saucedemo.com/inventory-item.html?id=0'
+    // const itemUrlOne = 'https://www.saucedemo.com/inventory-item.html?id=1'
+    // const itemUrlFive = 'https://www.saucedemo.com/inventory-item.html?id=5'
+    // const itemUrlTwo = 'https://www.saucedemo.com/inventory-item.html?id=2'
+    // const itemUrlThree = 'https://www.saucedemo.com/inventory-item.html?id=3'
+    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'
+    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg'
     describe ('INVENTORY testing', () =>{
         beforeAll('Open browser on the tested page', () => {
             // InventoryPage.getToInventory();
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
             browser.pause(1000);
-        });        
+        });
+
         describe ('HEADER testing', () => {            
             it('Cart icon opens the cart URL', () => {
                 InventoryPage.shoppingCartLink.click();
@@ -45,14 +53,14 @@ describe (
             });
         });
         describe ('BODY testing', () => { 
-            it('Click item  img/title and check it opens the individual item page'
+            it('Click item  img/name and check it opens the individual item page'
             +'then open the burger menu, click the ALL ITEMS option and check the url', () => {
                 InventoryPage.backpackItemImg.click();
-                expect(browser).toHaveUrl(itemUrl);
+                expect(browser).toHaveUrl(itemUrlFour);
                 InventoryPage.burgerMenuOption(InventoryPage.allItemsBtn);
                 expect(browser).toHaveUrl(urlInventory);
                 InventoryPage.backpackItemtName.click();
-                expect(browser).toHaveUrl(itemUrl);
+                expect(browser).toHaveUrl(itemUrlFour);
                 InventoryPage.burgerMenuOption(InventoryPage.allItemsBtn);
                 expect(browser).toHaveUrl(urlInventory);
                 browser.pause(1000);                  
@@ -60,7 +68,7 @@ describe (
             it('Click item  IMG and check it opens the individual item page'
             +'then click on BACK TO PRODUCTS and check the inventory url', () => {
                 InventoryPage.backpackItemImg.click();
-                expect(browser).toHaveUrl(itemUrl);
+                expect(browser).toHaveUrl(itemUrlFour);
                 InventoryPage.backToProducts.click();                
                 browser.pause(1000);  
                 expect(browser).toHaveUrl(urlInventory);
@@ -69,7 +77,7 @@ describe (
             it('Click item  IMG add item to cart the remove the item'
             +'then check the cart item counter', () => {
                 InventoryPage.backpackItemImg.click();
-                expect(browser).toHaveUrl(itemUrl);
+                expect(browser).toHaveUrl(itemUrlFour);
                 InventoryPage.addBackPackToCart.click();
                 browser.pause(1000);                
                 expect(InventoryPage.cartItemsCounter).toHaveText("1");
@@ -82,7 +90,7 @@ describe (
             it('Add item to the cart check the item counter on the cart icon and'
             +'remove item and check if the counter goes back to zero', () => {
                 InventoryPage.backpackItemImg.click();
-                expect(browser).toHaveUrl(itemUrl);
+                expect(browser).toHaveUrl(itemUrlFour);
                 InventoryPage.addBackPackToCart.click();
                 browser.pause(1000);
                 expect(InventoryPage.cartItemsCounter).toHaveText("1");
@@ -104,7 +112,8 @@ describe (
                 expect(browser).toHaveUrl(urlCheckout);
                 browser.pause(1000);
             });             
-        });
+         });
+        
         describe ('FOOTER testing', () =>{
             it('Check the url on the Twitter logo is correct', () => {
                 expect(InventoryPage.twitterLink).toBe('https://twitter.com/saucelabs');
@@ -130,5 +139,36 @@ describe (
                 browser.pause(1000);                
             });
         });
+        
+        
+        
+        
+        
+        
+        // describe('SORTER testing', () =>{
+        //     it('Sort from A-Z and check first item', () =>{
+        //         browser.refresh();
+        //         InventoryPage.sortProducts(4);
+        //         browser.pause(7000);
+        //         expect(IventoryPage.firstSortedItemName).toHaveText('Test.allTheThings() T-Shirt (Red)');
+        //     });
+
+
+        // });
+        // describe('PROBLEMATIC user test', () =>{
+        //     beforeAll('Log out from standard user and acces problem user', () =>{
+        //         InventoryPage.burgerMenuBtn.click();
+        //         InventoryPage.logOutBtn.click();
+        //         browser.url('https://www.saucedemo.com/');        
+        //         LoginPage.testLogin('problem_user', 'secret_sauce');
+        //     });
+        //     it('Test all LINKS and IMAGES', () =>{
+        //     });
+        // });
+
+
+
+
+
     });
 });

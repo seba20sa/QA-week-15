@@ -1,30 +1,18 @@
 class LoginPage {
-    /*GETTERS*/
-    /*Login logo*/
+    /*GETTERS*/    
     get loginLogo () { return $('.login-logo') }    
-    /*Form fields*/
-    get userNameInput () { return $('#user-name') }
+    /*Form */
+    get userNameInput () { return $('.form_input') }
     get passwordInput () { return $('#password') }
-    /*Error messages container*/
-    get errorMessageContainer () { return $('.error-message-container') }
-    /*Wrong input icon from FA shown when there is any incorrect input*/
-    // get wrongUserInput () { return $('.fa-times-circle') }
-    /*Delete error circle*/
-    get cleanErrorMessage () { return $('.error-button') }
-    /*Login btn*/
-    get loginBtn () { return $('#login-button') }
-    /*Credentials containers*/    
+    get errorMessageContainer () { return $('.error-message-container') }    
+    get wrongUserInput () { return $('.fa-times-circle') }    
+    get cleanErrorMessage () { return $('.error-button') }    
+    get loginBtn () { return $('#login-button') }       
     get userNameCredentials () { return $('#login_credentials') }
     get passwordCredentials () { return $('.login_password') }
-    /*Bot colum, this may be tricky contains an image*/
-    // get botColum () {
-    //     return $('')
-    // }
-    /*Inventory images after clicking login*/
-    get problematicImageSource () { 
+    get imageSource () { 
         return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
-    }
-    
+    }    
     /*SETTERS*/
     setUserName (username) {
         this.userNameInput.setValue(username);

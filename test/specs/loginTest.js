@@ -108,7 +108,7 @@ describe (
         ' the pictures are  dog ones', () => {                        
             LoginPage.testLogin('problem_user', 'secret_sauce');
             expect(browser).toHaveUrl(urlInventory);
-            expect(InventoryPage.problematicImageSource).toBe(urlDogImg);
+            expect(InventoryPage.imageSource).toBe(urlDogImg);
             browser.url(urlLogin);                         
         });
     it('performance glitch user out username and password, loads the next url all'+
