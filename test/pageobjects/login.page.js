@@ -2,7 +2,7 @@ class LoginPage {
     /*GETTERS*/    
     get loginLogo () { return $('.login-logo') }    
     /*Form */
-    get userNameInput () { return $('.form_input') }
+    get userNameInput () { return $('#user-name') }
     get passwordInput () { return $('#password') }
     get errorMessageContainer () { return $('.error-message-container') }    
     get wrongUserInput () { return $('.fa-times-circle') }    
@@ -11,7 +11,8 @@ class LoginPage {
     get userNameCredentials () { return $('#login_credentials') }
     get passwordCredentials () { return $('.login_password') }
     get imageSource () { 
-        return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
+        return $('//*[@id="item_4_img_link"]/img').getAttribute('src')
+        
     }    
     /*SETTERS*/
     setUserName (username) {

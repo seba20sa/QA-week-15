@@ -7,7 +7,7 @@ describe (
     const urlLogin = 'https://www.saucedemo.com/';
     const urlInventory ='https://www.saucedemo.com/inventory.html';
     const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg'
-    // const timeout = 500;
+    
     beforeAll('Open browser on the tested page', () => {
         browser.url(urlLogin);
     });          
@@ -18,13 +18,15 @@ describe (
         it('empty username', () => {            
             LoginPage.setUserName();
             LoginPage.loginBtn.click();
+            expect(LoginPage.errorMessageContainer).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Username is required");
-            // expect(wrongUserInput.isDisplayed()).toBe('true');                        
+                                  
         });
         it('username: undefined', () => {            
             LoginPage.setUserName(undefined);
             LoginPage.loginBtn.click();
+            expect(LoginPage.errorMessageContainer).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
             .toHaveText("Epic sadface: Username is required");                       
         });  
@@ -36,10 +38,11 @@ describe (
         });                
     });
     describe ('password field testing', () => {
-        afterAll('set pause for section', () => {
-            browser.pause(500);
-        }); 
-        it('empty password', () => {            
+        // afterAll('set pause for section', () => {
+        //     browser.pause(500);
+        // }); 
+        it('empty password', () => {
+            // browser.refresh();                        
             LoginPage.setPassword();
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)

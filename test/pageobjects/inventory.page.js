@@ -22,7 +22,7 @@ class InventoryPage {
     get anyProductImg () { return $$('.inventory_item_img') }
     /*Backpack item testing for first test then make dynamic*/
     // get firstItem () { return $('//*[@id="inventory_container"]/div/div[1]') }
-    get backToProducts () { return $('#back-to-products')}
+    get backToProducts () { return $('#back-to-products') }
     get checkOutBtn () { return $('#checkout') }
     /*Backpack ID 4*/   
     get backpackItemImg () { return $$('.inventory_item_img')[1] }    
@@ -31,13 +31,13 @@ class InventoryPage {
     get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack') }
     get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack') }
     get backpackItemPrice () { return $('.inventory_item_price')[1]}
-    /*Lab lights ID 0*/
-    get labLightsItemImg () { return $$('.inventory_item_img')[2] }    
-    get labLightsItemtName () { return $$('.inventory_item_name')[1] }    
-    get labLightsItemDescription () { return $$('.inventory_item_desc')[2] }
-    get addLabLightsToCart () { return $('#add-to-cart-sauce-labs-bike-lights') }
-    get removeLabLightsFromCart () { return $('#remove-sauce-labs-bike-lights') }
-    get labLightsItemPrice () { return $$('.inventory_item_price')[2]}
+    /*Lab light ID 0*/
+    get labLightItemImg () { return $$('.inventory_item_img')[2] }    
+    get labLightItemtName () { return $$('.inventory_item_name')[1] }    
+    get labLightItemDescription () { return $$('.inventory_item_desc')[2] }
+    get addLabLightToCart () { return $('#add-to-cart-sauce-labs-bike-light') }
+    get removeLabLightFromCart () { return $('#remove-sauce-labs-bike-light') }
+    get labLightItemPrice () { return $$('.inventory_item_price')[2]}
     /*Bolt T-shirt ID 1*/
     get boltTshirtItemImg () { return $$('.inventory_item_img')[3] }    
     get boltTshirtItemtName () { return $$('.inventory_item_name')[2] }    
