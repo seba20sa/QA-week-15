@@ -1,9 +1,6 @@
 const LoginPage = require('../pageobjects/login.page');
 const InventoryPage = require('../pageobjects/inventory.page');
 const CartPage = require('../pageobjects/cart.page');
-
-
-
 describe ('',  () => {    
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
@@ -13,7 +10,7 @@ describe ('',  () => {
     beforeAll(
         'log on with standard user, add the backpack item and '+
         'then click the cart icon', () => {
-            browser.url(urlCart);
+            browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
             browser.pause(1000);
             InventoryPage.addBackPackToCart.click();            
@@ -47,11 +44,7 @@ describe ('',  () => {
             expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
             expect(CartPage.cartQuantity).not.toBeDisplayed();
                       
-        });
-        // it('Click on check out', () => {
-        //     CartPage.checkOutBtn.click();
-        //     expect(browser).toHaveUrl(urlCheckout);            
-        // });          
+        });                 
     });
       
 });

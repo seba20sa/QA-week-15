@@ -8,10 +8,13 @@ describe (
     const urlCart = 'https://www.saucedemo.com/cart.html'
     const urlAbout = 'https://saucelabs.com/'
     const itemUrl = 'https://www.saucedemo.com/inventory-item.html?id=4'
+    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'  
     describe ('INVENTORY testing', () =>{
         beforeAll('Open browser on the tested page', () => {
+            // InventoryPage.getToInventory();
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
+            browser.pause(1000);
         });        
         describe ('HEADER testing', () => {            
             it('Cart icon opens the cart URL', () => {
@@ -94,7 +97,13 @@ describe (
                 InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
                 expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
                 browser.pause(1000);
-            });            
+            });
+            it('Click checkout and test the url', () => {                
+                InventoryPage.shoppingCartLink.click();
+                InventoryPage.checkOutBtn.click();
+                expect(browser).toHaveUrl(urlCheckout);
+                browser.pause(1000);
+            });             
         });
         describe ('FOOTER testing', () =>{
             it('Check the url on the Twitter logo is correct', () => {

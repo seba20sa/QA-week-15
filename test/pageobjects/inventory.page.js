@@ -29,6 +29,7 @@ class InventoryPage {
     get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack') }
     get backpackItemPrice () { return $('.inventory_item_price')}
     get backToProducts () { return $('#back-to-products')}
+    get checkOutBtn () { return $('#checkout') }
     /*Footer*/
     get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
     get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
@@ -47,6 +48,12 @@ class InventoryPage {
     }
     /*First trial with the backpack then use a variable selector */
     /* METHODS */
+    getToInventory () {
+        browser.url('https://www.saucedemo.com/');        
+        LoginPage.testLogin('standard_user', 'secret_sauce');
+        browser.pause(1000);        
+
+    }
     addItemToCart () {
         addBackPackToCart.click();
     }
