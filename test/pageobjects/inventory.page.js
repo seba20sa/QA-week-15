@@ -38,41 +38,36 @@ class InventoryPage {
     get removeOnsieFromCart () { return $('#remove-sauce-labs-onesie') }    
     /*Red shirt ID: 3, img: 10, name: 5, desc: 5, price: 5*/    
     // get addRedShirtToCart () { return $('#add-to-cart-test.allthethings()-t-shirt-(red)') }    
-    // get removeRedShirtFromCart () { return $('#remove-test.allthethings()-t-shirt-(red)') }
-    /*FIRST ITEM */
+    // get removeRedShirtFromCart () { return $('#remove-test.allthethings()-t-shirt-(red)') }    
     /*Footer*/
     get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
     get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
     get linkedinLink () { return $('.social_linkedin').$('a').getAttribute('href') } 
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
-
     /*SETTERS*/
     burgerMenuOption (option) {        
         this.burgerMenuBtn.click();
         browser.pause(1000);
         option.click();
-    }    
-    /* METHODS */
+    }
     nameItemSelector (value) {
         return $$('.inventory_item_name')[value]
     }
     igmItemSelector (value) {
         return $$('.inventory_item_img')[value]
     }
-
     descriptionItemSelector (value) {
         return $$('.inventory_item_desc')[value]
     }
-
     priceItemSelector (value) {
         return $$('.inventory_item_price')[value]
-    }
-    
+    }    
     sortItems (value) {
         this.productSorter.click();
         this.productSorter.$$('option')[`${value}`].click();
-    }
+    }    
+    /* METHODS */    
     getToProblematicInventory () {
         browser.url('https://www.saucedemo.com/');        
         LoginPage.testLogin('problem_user', 'secret_sauce');
