@@ -18,100 +18,65 @@ class InventoryPage {
     /*Body*/
     get imageSource () { 
         return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
-    }    
-    get anyProductImg () { return $$('.inventory_item_img') }
-    /*Backpack item testing for first test then make dynamic*/
-    // get firstItem () { return $('//*[@id="inventory_container"]/div/div[1]') }
+    }
     get backToProducts () { return $('#back-to-products') }
     get checkOutBtn () { return $('#checkout') }
-    /*Backpack ID 4*/   
-    get backpackItemImg () { return $$('.inventory_item_img')[1] }    
-    get backpackItemtName () { return $$('.inventory_item_name')[0] }    
-    get backpackItemDescription () { return $$('.inventory_item_desc')[1] }
+    /*Backpack ID: 4, img:1, name:0, desc:0, price:0*/
     get addBackPackToCart () { return $('#add-to-cart-sauce-labs-backpack') }
-    get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack') }
-    get backpackItemPrice () { return $('.inventory_item_price')[1]}
-    /*Lab light ID 0*/
-    get labLightItemImg () { return $$('.inventory_item_img')[2] }    
-    get labLightItemtName () { return $$('.inventory_item_name')[1] }    
-    get labLightItemDescription () { return $$('.inventory_item_desc')[2] }
+    get removeBackPackFromCart () { return $('#remove-sauce-labs-backpack') }    
+    /*Lab light ID: 0, img:2, name:1, desc:1, price:1*/    
     get addLabLightToCart () { return $('#add-to-cart-sauce-labs-bike-light') }
-    get removeLabLightFromCart () { return $('#remove-sauce-labs-bike-light') }
-    get labLightItemPrice () { return $$('.inventory_item_price')[2]}
-    /*Bolt T-shirt ID 1*/
-    get boltTshirtItemImg () { return $$('.inventory_item_img')[3] }    
-    get boltTshirtItemtName () { return $$('.inventory_item_name')[2] }    
-    get boltTshirtItemDescription () { return $$('.inventory_item_desc')[3] }
-    get addBoltTshirtToCart () { return $('#add-to-cart-sauce-bolt-t-shirt') }
-    get removeBoltTshirtsFromCart () { return $('#remove-sauce-bolt-t-shirt') }
-    get boltTshirtItemPrice () { return $$('.inventory_item_price')[3]}
-    /*Fleece jacket ID 5*/
-    get fleeceJacketItemImg () { return $$('.inventory_item_img')[4] }    
-    get fleeceJacketItemtName () { return $$('.inventory_item_name')[3] }    
-    get fleeceJacketItemDescription () { return $$('.inventory_item_desc')[4] }
+    get removeLabLightFromCart () { return $('#remove-sauce-labs-bike-light') }    
+    /*Bolt T-shirt ID: 1, img: 4, name: 2, desc: 2, price: 2*/    
+    get addBoltTshirtToCart () { return $('#add-to-cart-sauce-labs-bolt-t-shirt') }
+    get removeBoltTshirtsFromCart () { return $('#remove-sauce-labs-bolt-t-shirt') }    
+    /*Fleece jacket ID: 5, img: 6, name: 3, desc: 3, price: 3*/    
     get addFleeceJacketToCart () { return $('#add-to-cart-sauce-labs-fleece-jacket') }
-    get removeFleeceJacketFromCart () { return $('#remove-sauce-labs-fleece-jacket') }
-    get fleeceJacketItemPrice () { return $$('.inventory_item_price')[4]}
-    /*Onsie ID 2*/
-    get onsieItemImg () { return $$('.inventory_item_img')[5] }    
-    get onsieItemtName () { return $$('.inventory_item_name')[4] }    
-    get onsieItemDescription () { return $$('.inventory_item_desc')[5] }
+    get removeFleeceJacketFromCart () { return $('#remove-sauce-labs-fleece-jacket') }    
+    /*Onsie ID: 2, img: 8, name: 4, desc: 4, price: 4*/    
     get addOnsieToCart () { return $('#add-to-cart-sauce-labs-onesie') }
-    get removeOnsieFromCart () { return $('#remove-sauce-labs-onesie') }
-    get onsieItemPrice () { return $$('.inventory_item_price')[5]}
-    /*Red shirt ID 3*/
-    get redShirtItemImg () { return $$('.inventory_item_img')[6] }    
-    get redShirtItemtName () { return $$('.inventory_item_name')[5] }    
-    get redShirtItemDescription () { return $$('.inventory_item_desc')[6] }
-    get addRedShirtToCart () { return $('#add-to-cart-test.allthethings()-t-shirt-(red)') }
-    get removeRedShirtFromCart () { return $('#remove-test.allthethings()-t-shirt-(red)') }
-    get redShirtItemPrice () { return $$('.inventory_item_price')[6]} 
-    
+    get removeOnsieFromCart () { return $('#remove-sauce-labs-onesie') }    
+    /*Red shirt ID: 3, img: 10, name: 5, desc: 5, price: 5*/    
+    // get addRedShirtToCart () { return $('#add-to-cart-test.allthethings()-t-shirt-(red)') }    
+    // get removeRedShirtFromCart () { return $('#remove-test.allthethings()-t-shirt-(red)') }
+    /*FIRST ITEM */
     /*Footer*/
     get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
     get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
     get linkedinLink () { return $('.social_linkedin').$('a').getAttribute('href') } 
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
-    //Other items 
-     //*[@id="remove-sauce-labs-backpack"]
-     //*[@id="remove-sauce-labs-bike-light"]
-
 
     /*SETTERS*/
     burgerMenuOption (option) {        
         this.burgerMenuBtn.click();
         browser.pause(1000);
         option.click();
+    }    
+    /* METHODS */
+    nameItemSelector (value) {
+        return $$('.inventory_item_name')[value]
+    }
+    igmItemSelector (value) {
+        return $$('.inventory_item_img')[value]
+    }
+
+    descriptionItemSelector (value) {
+        return $$('.inventory_item_desc')[value]
+    }
+
+    priceItemSelector (value) {
+        return $$('.inventory_item_price')[value]
     }
     
-    /* METHODS */
-    
-
-    
-    getToInventory () {
-        browser.url('https://www.saucedemo.com/');        
-        LoginPage.testLogin('standard_user', 'secret_sauce');
-        browser.pause(1000);        
-
+    sortItems (value) {
+        this.productSorter.click();
+        this.productSorter.$$('option')[`${value}`].click();
     }
     getToProblematicInventory () {
         browser.url('https://www.saucedemo.com/');        
         LoginPage.testLogin('problem_user', 'secret_sauce');
-        browser.pause(1000);        
-
+        browser.pause(1000);
     }
-    
-    addItemToCart (itemaddlink) {
-        this.itemaddlink.click();
-    }
-    openSocMed (socialmedialink) {
-        socialmedialink.click();
-    }
-    goBack () {
-        browser.back();
-    }
-    
-}    
-
+}
 module.exports = new InventoryPage();

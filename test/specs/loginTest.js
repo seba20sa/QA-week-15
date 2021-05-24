@@ -37,12 +37,8 @@ describe (
             .toHaveText("Epic sadface: Password is required");                       
         });                
     });
-    describe ('password field testing', () => {
-        // afterAll('set pause for section', () => {
-        //     browser.pause(500);
-        // }); 
-        it('empty password', () => {
-            // browser.refresh();                        
+    describe ('password field testing', () => {        
+        it('empty password', () => {                                   
             LoginPage.setPassword();
             LoginPage.loginBtn.click();
             expect(LoginPage.errorMessageContainer)
