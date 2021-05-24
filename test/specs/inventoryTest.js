@@ -182,8 +182,7 @@ describe ('INVENTORY page testing',  () => {
                     browser.pause(1000);                  
                 });
                 it('Click item  IMG add item to cart the remove the item'
-                +'then check the cart item counter', () => {
-                    
+                +'then check the cart item counter', () => {                    
                     InventoryPage.igmItemSelector(2).click();
                     expect(browser).toHaveUrl(itemUrlZero);
                     InventoryPage.addLabLightToCart.click();
@@ -219,8 +218,7 @@ describe ('INVENTORY page testing',  () => {
                     InventoryPage.checkOutBtn.click();
                     expect(browser).toHaveUrl(urlCheckout);
                     browser.pause(1000);                    
-                });
-                
+                });                
              });
             describe ('BOLT T-SHIRT testing', () => {
                 it('Click item  img/name and check it opens the individual item page'

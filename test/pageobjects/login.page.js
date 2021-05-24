@@ -9,11 +9,7 @@ class LoginPage {
     get cleanErrorMessage () { return $('.error-button') }    
     get loginBtn () { return $('#login-button') }       
     get userNameCredentials () { return $('#login_credentials') }
-    get passwordCredentials () { return $('.login_password') }
-    get imageSource () { 
-        return $('//*[@id="item_4_img_link"]/img').getAttribute('src')
-        
-    }    
+    get passwordCredentials () { return $('.login_password') }       
     /*SETTERS*/
     setUserName (username) {
         this.userNameInput.setValue(username);
@@ -22,7 +18,7 @@ class LoginPage {
     setPassword (password) {
         this.passwordInput.setValue(password);
         browser.keys('Tab');        
-    }   
+    }      
     /* METHODS */
     cleanErrorMessages () {
         this.cleanErrorMessage.click();
