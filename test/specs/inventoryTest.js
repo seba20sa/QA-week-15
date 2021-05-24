@@ -428,38 +428,37 @@ describe ('INVENTORY page testing',  () => {
                     expect(browser).toHaveUrl(urlInventory);
                     browser.pause(1000);                  
                 });
-            //     // it('Click item  IMG add item to cart the remove the item'
-            //     // +'then check the cart item counter', () => {                    
-            //     //     InventoryPage.igmItemSelector(10).click();
-            //     //     expect(browser).toHaveUrl(itemUrlThree);
-            //     //     InventoryPage.addRedShirtToCart.click();
-            //     //     browser.pause(1000);                
-            //         // expect(InventoryPage.cartItemsCounter).toHaveText("1");
-            //         // InventoryPage.removeRedShirtFromCart.click();
-            //         // browser.pause(1000);
-            //         // expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-            //         // browser.url(urlInventory);
-            //         // browser.pause(1000);                 
-            //     // });             
-            //     // it('Add item to the cart check the item counter on the cart icon and'
-            //     // +'remove item and check if the counter goes back to zero', () => {
-            //     //     InventoryPage.igmItemSelector(10).click();
-            //     //     expect(browser).toHaveUrl(itemUrlThree);
-            //     //     InventoryPage.addRedShirtToCart.click();
-            //     //     browser.pause(1000);
-            //     //     expect(InventoryPage.cartItemsCounter).toHaveText("1");
-            //     //     InventoryPage.removeRedShirtFromCart.click();
-            //     //     browser.pause(1000);
-            //     //     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-            //     //     browser.pause(1000);
-            //     // });            
-            //     // it('Add item to the cart then click burger menu and click RESET APP STATE then check'
-            //     // +'the cartItemsCounter display status', () => {
-            //     //     InventoryPage.addOnsieToCart.click();
-            //     //     InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
-            //     //     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-            //     //     browser.pause(1000);
-            //     // });
+                it('Click item  IMG add item to cart the remove the item'
+                +'then check the cart item counter', () => {                    
+                    InventoryPage.igmItemSelector(10).click();
+                    expect(browser).toHaveUrl(itemUrlThree);
+                    InventoryPage.addRedShirtToCartOnItems.click();
+                    browser.pause(1000);                
+                    expect(InventoryPage.cartItemsCounter).toHaveText("1");
+                    InventoryPage.removeRedShirtFromCartOnItems.click();
+                    browser.pause(1000);
+                    expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
+                    browser.url(urlInventory);
+                    browser.pause(1000);                 
+                });
+                it('Add item to the cart then click burger menu and click RESET APP STATE then check'
+                +'the cartItemsCounter display status', () => {                    
+                    InventoryPage.addRedShirtToCartOnInventory.click();                    
+                    InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);                    
+                    expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();                    
+                    browser.pause(1000);
+                });             
+                it('Add item to the cart check the item counter on the cart icon and'
+                +'remove item and check if the counter goes back to zero', () => {
+                    InventoryPage.igmItemSelector(10).click();
+                    expect(browser).toHaveUrl(itemUrlThree);
+                    InventoryPage.addRedShirtToCartOnItems.click();                    
+                    expect(InventoryPage.cartItemsCounter).toHaveText("1");
+                    InventoryPage.removeRedShirtFromCartOnItems.click();                    
+                    expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
+                    browser.pause(1000);
+                });            
+                
                 it('Click checkout and test the url', () => {                
                     InventoryPage.shoppingCartLink.click();
                     InventoryPage.checkOutBtn.click();
@@ -493,15 +492,15 @@ describe ('INVENTORY page testing',  () => {
                 browser.pause(1000);                
             });
         });
-        //  describe('PROBLEMATIC user test', () =>{
-        // //     beforeAll('Log out from standard user and acces problem user', () =>{
-        // //         InventoryPage.burgerMenuBtn.click();
-        // //         InventoryPage.logOutBtn.click();
-        // //         browser.url('https://www.saucedemo.com/');        
-        // //         LoginPage.testLogin('problem_user', 'secret_sauce');
-        // //     });
-        // //     it('Test all LINKS and IMAGES', () =>{
-        // //     });
-        // });
+         describe('PROBLEMATIC user test', () =>{
+        //     beforeAll('Log out from standard user and acces problem user', () =>{
+        //         InventoryPage.burgerMenuBtn.click();
+        //         InventoryPage.logOutBtn.click();
+        //         browser.url('https://www.saucedemo.com/');        
+        //         LoginPage.testLogin('problem_user', 'secret_sauce');
+        //     });
+        //     it('Test all LINKS and IMAGES', () =>{
+        //     });
+        });
     });
 });
