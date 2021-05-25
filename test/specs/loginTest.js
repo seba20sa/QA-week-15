@@ -6,7 +6,7 @@ describe (
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
     const urlInventory ='https://www.saucedemo.com/inventory.html';
-    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg'    
+    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg';    
     beforeAll('Open browser on the tested page', () => {
         browser.url(urlLogin);
     });          
@@ -112,8 +112,8 @@ describe (
             expect(InventoryPage.igmItemSelector(1).getAttribute('src')).toBe(urlDogImg);
             browser.url(urlLogin);                         
         });
-    it('performance glitch user out username and password, loads the next url all'+
-    ' the pictures are not the dog ones but it takes a long time to do it', () => {            
+        it('performance glitch user out username and password, loads the next url all'+
+        ' the pictures are not the dog ones but it takes a long time to do it', () => {            
             LoginPage.testLogin('performance_glitch_user', 'secret_sauce');
             expect(LoginPage.errorMessageContainer).not.toBeDisplayed();            
             browser.setTimeout({

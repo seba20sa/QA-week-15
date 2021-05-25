@@ -6,7 +6,7 @@ describe ('CART page tests',  () => {
     const urlLogin = 'https://www.saucedemo.com/';
     const urlInventory = 'https://www.saucedemo.com/inventory.html';
     const urlCart = 'https://www.saucedemo.com/cart.html';
-    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'    
+    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html';    
     beforeAll(
         'log on with standard user, add the backpack item and '+
         'then click the cart icon', () => {
@@ -180,7 +180,6 @@ describe ('CART page tests',  () => {
             expect(CartPage.priceItemSelector(0)).toHaveText("$15.99");
         });
         it('Remove item and check the quantity and cart counter ', () => {
-            browser.pause(5000);
             CartPage.removeRedShirtFromCartOnItems.click();            
             expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
             expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -188,7 +187,6 @@ describe ('CART page tests',  () => {
         it('From the cart page click CONTINUE SHOPPING', () => {
             CartPage.continueShopping.click();
             expect(browser).toHaveUrl(urlInventory);
-            browser.pause(1000);
         });
         it('Reset app state', () => {
             CartPage.burgerMenuOption(CartPage.resetAppStateBtn);            

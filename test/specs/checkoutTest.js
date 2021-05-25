@@ -10,7 +10,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
     const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html';
     const urlCheckoutTwo = 'https://www.saucedemo.com/checkout-step-two.html';
     const urlCheckoutComplete = 'https://www.saucedemo.com/checkout-complete.html';   
-    const ponyExpressSource = 'https://www.saucedemo.com/static/media/pony-express.46394a5d.png'
+    const ponyExpressSource = 'https://www.saucedemo.com/static/media/pony-express.46394a5d.png';
     describe('Checkout form test from STANDARD USER', () =>{
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
