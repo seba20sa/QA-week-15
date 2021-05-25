@@ -68,11 +68,11 @@ describe ('Tests performed to the checkout step 1 and 2 sections',  () => {
             browser.pause(1000);
         });
         it('Check item info  and quantity displayed correctly', () => {
-            expect(CheckoutPage.backpackItemtName).toHaveText("Sauce Labs Backpack");
-            expect(CheckoutPage.backpackItemDescription)
+            expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
+            expect(CheckoutPage.descriptionItemSelector(0))
             .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
             "that melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CheckoutPage.backpackItemPrice).toHaveText("$29.99");
+            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");
