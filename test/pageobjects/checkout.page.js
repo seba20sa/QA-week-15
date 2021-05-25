@@ -94,7 +94,6 @@ class CheckoutPage {
     }
     cleanErrorMessages () {
         this.cleanErrorMessage.click();
-    }
-    
+    }    
 }    
 module.exports = new CheckoutPage();

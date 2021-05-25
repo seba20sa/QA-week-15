@@ -40,13 +40,17 @@ class InventoryPage {
     get addRedShirtToCartOnInventory () { return $$('.btn_primary')[5] }
     get addRedShirtToCartOnItems () { return $('.btn_primary')  }      
     get removeRedShirtFromCartOnInventory () { return $$('.btn_secondary')[5]}
-    get removeRedShirtFromCartOnItems  () { return $('.btn_small') }      
+    get removeRedShirtFromCartOnItems  () { return $('.btn_small') }
+    get addRedShirtToCartFromProblemInventory  () { return $('button[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]') }      
     /*Footer*/
     get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
     get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
     get linkedinLink () { return $('.social_linkedin').$('a').getAttribute('href') } 
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
+    /*Problematic user*/
+    
+    
     /*SETTERS*/
     burgerMenuOption (option) {        
         this.burgerMenuBtn.click();
@@ -59,6 +63,7 @@ class InventoryPage {
     igmItemSelector (value) {
         return $$('.inventory_item_img')[value]
     }
+    
     descriptionItemSelector (value) {
         return $$('.inventory_item_desc')[value]
     }
@@ -70,10 +75,6 @@ class InventoryPage {
         this.productSorter.$$('option')[`${value}`].click();
     }    
     /* METHODS */    
-    getToProblematicInventory () {
-        browser.url('https://www.saucedemo.com/');        
-        LoginPage.testLogin('problem_user', 'secret_sauce');
-        browser.pause(1000);
-    }
+    
 }
 module.exports = new InventoryPage();
