@@ -4,18 +4,19 @@ describe ('INVENTORY page testing',  () => {
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
     const urlInventory = 'https://www.saucedemo.com/inventory.html';
-    const urlCart = 'https://www.saucedemo.com/cart.html'
-    const urlAbout = 'https://saucelabs.com/'
+    const urlCart = 'https://www.saucedemo.com/cart.html';
+    const urlAbout = 'https://saucelabs.com/';
+    const urlProblematicAbout = 'https://saucelabs.com/error/404';
     //ITEMS
-    const itemUrlFour = 'https://www.saucedemo.com/inventory-item.html?id=4'
-    const itemUrlZero = 'https://www.saucedemo.com/inventory-item.html?id=0'
-    const itemUrlOne = 'https://www.saucedemo.com/inventory-item.html?id=1'
-    const itemUrlFive = 'https://www.saucedemo.com/inventory-item.html?id=5'
-    const itemUrlTwo = 'https://www.saucedemo.com/inventory-item.html?id=2'
-    const itemUrlThree = 'https://www.saucedemo.com/inventory-item.html?id=3'
-    const itemUrlBroken = 'https://www.saucedemo.com/inventory-item.html?id=6'
-    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'    
-    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg' 
+    const itemUrlFour = 'https://www.saucedemo.com/inventory-item.html?id=4';
+    const itemUrlZero = 'https://www.saucedemo.com/inventory-item.html?id=0';
+    const itemUrlOne = 'https://www.saucedemo.com/inventory-item.html?id=1';
+    const itemUrlFive = 'https://www.saucedemo.com/inventory-item.html?id=5';
+    const itemUrlTwo = 'https://www.saucedemo.com/inventory-item.html?id=2';
+    const itemUrlThree = 'https://www.saucedemo.com/inventory-item.html?id=3';
+    const itemUrlBroken = 'https://www.saucedemo.com/inventory-item.html?id=6';
+    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html';  
+    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg';
     describe ('INVENTORY testing', () =>{
         beforeAll('Open browser on the tested page', () => {            
             browser.url(urlLogin);
@@ -498,6 +499,12 @@ describe ('INVENTORY page testing',  () => {
                 browser.url('https://www.saucedemo.com/');        
                 LoginPage.testLogin('problem_user', 'secret_sauce');
                 
+            });
+            it('Open burger menu and click the about option', () => {
+                InventoryPage.burgerMenuOption(InventoryPage.aboutBtn);
+                expect(browser).toHaveUrl(urlProblematicAbout);
+                browser.back();
+                expect(browser).toHaveUrl(urlInventory);
             });
             it('Test all LINKS and IMAGES checking the imgs IDs manually one by one', () =>{
                 expect(InventoryPage.igmItemSelector(1).getAttribute('src')).toBe(urlDogImg);
