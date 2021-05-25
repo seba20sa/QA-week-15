@@ -15,7 +15,7 @@ describe ('INVENTORY page testing',  () => {
     const itemUrlThree = 'https://www.saucedemo.com/inventory-item.html?id=3'
     const itemUrlBroken = 'https://www.saucedemo.com/inventory-item.html?id=6'
     const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'    
-    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg'
+    const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg' 
     describe ('INVENTORY testing', () =>{
         beforeAll('Open browser on the tested page', () => {            
             browser.url(urlLogin);
@@ -244,7 +244,8 @@ describe ('INVENTORY page testing',  () => {
                     browser.pause(1000);                  
                 });
                 it('Click item  IMG add item to cart the remove the item'
-                +'then check the cart item counter', () => {                    
+                +'then check the cart item counter', () => {
+                    
                     InventoryPage.igmItemSelector(4).click();
                     expect(browser).toHaveUrl(itemUrlOne);
                     InventoryPage.addBoltTshirtToCart.click();
@@ -455,7 +456,8 @@ describe ('INVENTORY page testing',  () => {
                     InventoryPage.removeRedShirtFromCartOnItems.click();                    
                     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
                     browser.pause(1000);
-                }); 
+                });            
+                
                 it('Click checkout and test the url', () => {                
                     InventoryPage.shoppingCartLink.click();
                     InventoryPage.checkOutBtn.click();
@@ -494,7 +496,8 @@ describe ('INVENTORY page testing',  () => {
                 InventoryPage.burgerMenuBtn.click();
                 InventoryPage.logOutBtn.click();
                 browser.url('https://www.saucedemo.com/');        
-                LoginPage.testLogin('problem_user', 'secret_sauce');                
+                LoginPage.testLogin('problem_user', 'secret_sauce');
+                
             });
             it('Test all LINKS and IMAGES checking the imgs IDs manually one by one', () =>{
                 expect(InventoryPage.igmItemSelector(1).getAttribute('src')).toBe(urlDogImg);
