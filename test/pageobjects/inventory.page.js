@@ -41,22 +41,19 @@ class InventoryPage {
     get addRedShirtToCartOnItems () { return $('.btn_primary')  }      
     get removeRedShirtFromCartOnInventory () { return $$('.btn_secondary')[5]}
     get removeRedShirtFromCartOnItems  () { return $('.btn_small') }
-    get addRedShirtToCartFromProblemInventory  () { return $('button[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]') }      
+    get addRedShirtToCartFromProblemInventory  () { 
+        return $('button[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]') 
+    }
+    get removeRedShirtToCartFromProblemInventory  () { 
+        return $('button[data-test="remove-to-cart-test.allthethings()-t-shirt-(red)"]') 
+    }        
     /*Footer*/
     get twitterLink () { return $('.social_twitter').$('a').getAttribute('href') }
     get facebookLink () { return $('.social_facebook').$('a').getAttribute('href') }
     get linkedinLink () { return $('.social_linkedin').$('a').getAttribute('href') } 
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
-    /*Problematic user*/
-    
-    
     /*SETTERS*/
-    burgerMenuOption (option) {        
-        this.burgerMenuBtn.click();
-        browser.pause(1000);
-        option.click();
-    }
     nameItemSelector (value) {
         return $$('.inventory_item_name')[value]
     }
@@ -69,12 +66,16 @@ class InventoryPage {
     }
     priceItemSelector (value) {
         return $$('.inventory_item_price')[value]
-    }    
+    }
+    /* METHODS */
+    burgerMenuOption (option) {        
+        this.burgerMenuBtn.click();
+        browser.pause(1000);
+        option.click();
+    }        
     sortItems (value) {
         this.productSorter.click();
         this.productSorter.$$('option')[`${value}`].click();
-    }    
-    /* METHODS */    
-    
+    } 
 }
 module.exports = new InventoryPage();

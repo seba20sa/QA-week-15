@@ -1,6 +1,5 @@
 const LoginPage = require('../pageobjects/login.page');
 const InventoryPage = require('../pageobjects/inventory.page');
-const loginPage = require('../pageobjects/login.page');
 describe ('INVENTORY page testing',  () => {    
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
@@ -14,10 +13,9 @@ describe ('INVENTORY page testing',  () => {
     const itemUrlFive = 'https://www.saucedemo.com/inventory-item.html?id=5'
     const itemUrlTwo = 'https://www.saucedemo.com/inventory-item.html?id=2'
     const itemUrlThree = 'https://www.saucedemo.com/inventory-item.html?id=3'
-    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'
+    const itemUrlBroken = 'https://www.saucedemo.com/inventory-item.html?id=6'
+    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html'    
     const urlDogImg = 'https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg'
-    
-    
     describe ('INVENTORY testing', () =>{
         beforeAll('Open browser on the tested page', () => {            
             browser.url(urlLogin);
@@ -246,8 +244,7 @@ describe ('INVENTORY page testing',  () => {
                     browser.pause(1000);                  
                 });
                 it('Click item  IMG add item to cart the remove the item'
-                +'then check the cart item counter', () => {
-                    
+                +'then check the cart item counter', () => {                    
                     InventoryPage.igmItemSelector(4).click();
                     expect(browser).toHaveUrl(itemUrlOne);
                     InventoryPage.addBoltTshirtToCart.click();
@@ -458,8 +455,7 @@ describe ('INVENTORY page testing',  () => {
                     InventoryPage.removeRedShirtFromCartOnItems.click();                    
                     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
                     browser.pause(1000);
-                });            
-                
+                }); 
                 it('Click checkout and test the url', () => {                
                     InventoryPage.shoppingCartLink.click();
                     InventoryPage.checkOutBtn.click();
@@ -498,8 +494,7 @@ describe ('INVENTORY page testing',  () => {
                 InventoryPage.burgerMenuBtn.click();
                 InventoryPage.logOutBtn.click();
                 browser.url('https://www.saucedemo.com/');        
-                LoginPage.testLogin('problem_user', 'secret_sauce');
-                
+                LoginPage.testLogin('problem_user', 'secret_sauce');                
             });
             it('Test all LINKS and IMAGES checking the imgs IDs manually one by one', () =>{
                 expect(InventoryPage.igmItemSelector(1).getAttribute('src')).toBe(urlDogImg);
@@ -537,15 +532,45 @@ describe ('INVENTORY page testing',  () => {
                 expect(InventoryPage.priceItemSelector(4)).toHaveText("$7.99");
                 expect(InventoryPage.priceItemSelector(5)).toHaveText("$15.99");                
             });
-            it('Test for Add links for all items, check which work and which not'+
-            'then check if remove items do not work',() =>{
+            it('Test for ADD links for all items, check which work and which not'+
+            'then check which REMOVE-LINKS buttons do not work',() =>{
                 InventoryPage.addBackPackToCart.click();
                 InventoryPage.addLabLightToCart.click();
                 InventoryPage.addBoltTshirtToCart.click();
                 InventoryPage.addFleeceJacketToCart.click();
                 InventoryPage.addOnsieToCart.click();
                 InventoryPage.addRedShirtToCartFromProblemInventory.click();
-                browser.pause(5000);
+                expect(InventoryPage.removeBoltTshirtsFromCart).not.toBeDisplayed();
+                expect(InventoryPage.removeFleeceJacketFromCart).not.toBeDisplayed();
+                expect(InventoryPage.removeRedShirtToCartFromProblemInventory).not.toBeDisplayed();
+                expect(InventoryPage.removeOnsieFromCart).toBeDisplayed();
+                expect(InventoryPage.removeLabLightFromCart).toBeDisplayed();
+                expect(InventoryPage.removeBackPackFromCart).toBeDisplayed();
+                InventoryPage.removeOnsieFromCart.click();
+                InventoryPage.removeLabLightFromCart.click();
+                InventoryPage.removeBackPackFromCart.click();
+                expect(InventoryPage.addOnsieToCart).not.toBeDisplayed();
+                expect(InventoryPage.addLabLightToCart).not.toBeDisplayed();
+                expect(InventoryPage.addBackPackToCart).not.toBeDisplayed();
+            });
+            it('Test name links to check if they show the right item', () =>{
+                InventoryPage.nameItemSelector(0).click();
+                expect(browser).toHaveUrl(itemUrlFive);
+                InventoryPage.backToProducts.click();
+                InventoryPage.nameItemSelector(1).click();
+                expect(browser).toHaveUrl(itemUrlOne);
+                InventoryPage.backToProducts.click();
+                InventoryPage.nameItemSelector(2).click();                
+                expect(browser).toHaveUrl(itemUrlTwo);
+                InventoryPage.backToProducts.click();
+                InventoryPage.nameItemSelector(3).click();
+                expect(browser).toHaveUrl(itemUrlBroken);
+                InventoryPage.backToProducts.click();
+                InventoryPage.nameItemSelector(4).click();
+                expect(browser).toHaveUrl(itemUrlThree);
+                InventoryPage.backToProducts.click();
+                InventoryPage.nameItemSelector(5).click();
+                expect(browser).toHaveUrl(itemUrlFour);
             });
         });
     });
