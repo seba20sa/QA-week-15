@@ -1,9 +1,6 @@
 class InventoryPage {
     /*GETTERS*/
     /*Header*/
-    get inventoryTitle () { return $('.title') }
-    get peekBot () { return $('.peek') }
-    get appLogo () { return $('.app_logo') }
     get shoppingCartLink () { return $('.shopping_cart_link') }
     get cartItemsCounter () { return $('.shopping_cart_badge') }
     /*Menu*/
@@ -16,9 +13,6 @@ class InventoryPage {
     get productSorter () { return $('.product_sort_container') }
     get  () { return $('') }   
     /*Body*/
-    get imageSource () { 
-        return $('//*[@id="item_4_img_link"]/img').getAttribute('src') 
-    }
     get backToProducts () { return $('#back-to-products') }
     get checkOutBtn () { return $('#checkout') }
     /*Backpack ID: 4, img:1, name:0, desc:0, price:0*/
@@ -36,15 +30,16 @@ class InventoryPage {
     /*Onsie ID: 2, img: 8, name: 4, desc: 4, price: 4*/    
     get addOnsieToCart () { return $('#add-to-cart-sauce-labs-onesie') }
     get removeOnsieFromCart () { return $('#remove-sauce-labs-onesie') }    
-    /*Red shirt ID: 3, img: 10, name: 5, desc: 5, price: 5*/    
+    /*Red shirt ID: 3, img: 10, name: 5, desc: 5, price: 5*/
+    get addRedShirtToCartOnItems () { return $('.btn_primary')  }
+    get removeRedShirtFromCartOnItems  () { return $('.btn_small') }    
     get addRedShirtToCartOnInventory () {
         return $('//*[@id="add-to-cart-test.allthethings()-t-shirt-(red)"]')
     }
     get removeRedShirtFromCartOnInventory () { 
         return $('//*[@id="remove-test.allthethings()-t-shirt-(red)"]') 
     }
-    get addRedShirtToCartOnItems () { return $('.btn_primary')  }
-    get removeRedShirtFromCartOnItems  () { return $('.btn_small') } 
+     
     get addRedShirtToCartFromProblemInventory  () { 
         return $('button[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]') 
     }

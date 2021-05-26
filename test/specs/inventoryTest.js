@@ -524,8 +524,7 @@ describe ('INVENTORY page testing',  () => {
                 InventoryPage.burgerMenuBtn.click();
                 InventoryPage.logOutBtn.click();
                 browser.url('https://www.saucedemo.com/');        
-                LoginPage.testLogin('problem_user', 'secret_sauce');
-                
+                LoginPage.testLogin('problem_user', 'secret_sauce');                
             });
             it('Open burger menu and click the about option', () => {
                 InventoryPage.burgerMenuOption(InventoryPage.aboutBtn);
