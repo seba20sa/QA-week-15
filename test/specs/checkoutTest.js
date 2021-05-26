@@ -35,30 +35,35 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             describe('Form inputs test', () =>{
                 it('EMPTY FIRST NAME ,valid last name and valid zip', () => {
                     CheckoutPage.testCheckoutForm('', 'Sileoni', '2000');
+                    expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                     expect(CheckoutPage.errorMessageContainer)
                     .toHaveText("Error: First Name is required");
                     browser.refresh();
                 });
                 it('Valid first name, EMPTY LAST NAME and valid zip', () => {
                     CheckoutPage.testCheckoutForm('Sebastian', '', '2000');
+                    expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                     expect(CheckoutPage.errorMessageContainer)
                     .toHaveText("Error: Last Name is required");
                     browser.refresh();
                 });
                 it('Valid first name,valid last name and EMPTY ZIP', () => {
                     CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '');
+                    expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                     expect(CheckoutPage.errorMessageContainer)
                     .toHaveText("Error: Postal Code is required");
                     browser.refresh();
                 });  
                 it('Try to continue with ALL FIELDS EMPTY', () => {
                     CheckoutPage.testCheckoutForm('', '', '');
+                    expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                     expect(CheckoutPage.errorMessageContainer)
                     .toHaveText("Error: First Name is required");
                     browser.refresh();
                 });
                 it('All fields VALID', () => {
                     CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+                    expect(CheckoutPage.wrongUserInput).not.toBeDisplayed();
                     expect(CheckoutPage.errorMessageContainer).not.toBeDisplayed();
                     expect(browser).toHaveUrl(urlCheckoutTwo);                
                 });
@@ -132,12 +137,14 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         describe('Form inputs test', () =>{                
             it('Valid first name, EMPTY LAST NAME and valid zip', () => {
                 CheckoutPage.testCheckoutForm('Sebastian', '', '2000');
+                expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                 expect(CheckoutPage.errorMessageContainer)
                 .toHaveText("Error: Last Name is required");                
                 browser.refresh();
             });                  
             it('Try to continue with ALL FIELDS EMPTY', () => {
                 CheckoutPage.testCheckoutForm('', '', '');
+                expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                 expect(CheckoutPage.errorMessageContainer)
                 .toHaveText("Error: First Name is required");                
                 browser.refresh();
@@ -145,6 +152,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             it('Check if the last name field input overwrites the first name one and'+
             'only adds the last character from the last name input', () => {
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+                expect(CheckoutPage.wrongUserInput).toBeDisplayed();
                 expect(CheckoutPage.lastNameInput.getAttribute('value')).toBe("");
                 expect(CheckoutPage.firstNameInput.getAttribute('value')).toBe("i");                
                 expect(CheckoutPage.errorMessageContainer)

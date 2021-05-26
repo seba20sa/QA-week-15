@@ -1,12 +1,12 @@
 const LoginPage = require('../pageobjects/login.page');
 const InventoryPage = require('../pageobjects/inventory.page');
 const CartPage = require('../pageobjects/cart.page');
+const CheckoutPage = require('../pageobjects/checkout.page');
 describe ('CART page tests',  () => {    
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
     const urlInventory = 'https://www.saucedemo.com/inventory.html';
     const urlCart = 'https://www.saucedemo.com/cart.html';
-    const urlCheckout = 'https://www.saucedemo.com/checkout-step-one.html';
     describe('Tests with standard user', () => {
         beforeAll('Login with standard user', () => {
             browser.url(urlLogin);
@@ -16,7 +16,7 @@ describe ('CART page tests',  () => {
             beforeAll('From the inventory page add the item to the cart and access the cart', () =>{
                 InventoryPage.addBackPackToCart.click();            
                 InventoryPage.shoppingCartLink.click();            
-            });                
+            });         
             it('Check if the URL, item quantity and item info are correct', () => {
                 expect(browser).toHaveUrl(urlCart);          
                 expect(CartPage.cartQuantity).toHaveText("1");
