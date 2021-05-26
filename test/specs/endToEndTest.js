@@ -22,20 +22,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
-            expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
+            expect(CartPage.nameItemSelector(0))
+            .toHaveText(InventoryPage.nameItemSelector(0).getText());
             expect(CartPage.descriptionItemSelector(0))
-            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
-            " melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");            
+            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
+            expect(CartPage.priceItemSelector(0))
+            .toHaveText(InventoryPage.priceItemSelector(0).getText());
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             expect(browser).toHaveUrl(urlCheckoutTwo);
-            expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
+            expect(CheckoutPage.nameItemSelector(0))
+            .toHaveText(InventoryPage.nameItemSelector(0).getText());
             expect(CheckoutPage.descriptionItemSelector(0))
-            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
-            "that melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
+            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
+            expect(CheckoutPage.priceItemSelector(0))
+            .toHaveText(InventoryPage.priceItemSelector(0).getText());
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");
@@ -63,20 +65,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
-            expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
+            expect(CartPage.nameItemSelector(0))
+            .toHaveText(InventoryPage.nameItemSelector(0).getText());
             expect(CartPage.descriptionItemSelector(0))
-            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
-            " melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");            
+            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
+            expect(CartPage.priceItemSelector(0))
+            .toHaveText(InventoryPage.priceItemSelector(0).getText());
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             expect(browser).toHaveUrl(urlCheckoutTwo);
-            expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
+            expect(CheckoutPage.nameItemSelector(0))
+            .toHaveText(InventoryPage.nameItemSelector(0).getText());
             expect(CheckoutPage.descriptionItemSelector(0))
-            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
-            "that melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
+            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
+            expect(CheckoutPage.priceItemSelector(0))
+            .toHaveText(InventoryPage.priceItemSelector(0).getText());
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");
@@ -98,4 +102,5 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });  
     });
+    // describe('STANDAR USER BACKPACK item', () =>{});
 });
