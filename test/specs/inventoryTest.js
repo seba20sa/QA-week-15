@@ -128,7 +128,6 @@ describe ('INVENTORY page testing',  () => {
                     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();  
                 });
             });
-        
             describe ('BACKPACK testing', () => {
                 it('Click item  img/name and check it opens the individual item page'
                     +'then open the burger menu, click the ALL ITEMS option and check the url', () => {
@@ -486,8 +485,7 @@ describe ('INVENTORY page testing',  () => {
                     InventoryPage.removeRedShirtFromCartOnItems.click();                    
                     expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
                     browser.pause(1000);
-                });            
-                
+                });
                 it('Click checkout and test the url', () => {                
                     InventoryPage.shoppingCartLink.click();
                     InventoryPage.checkOutBtn.click();

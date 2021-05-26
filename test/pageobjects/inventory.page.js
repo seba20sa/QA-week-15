@@ -63,8 +63,7 @@ class InventoryPage {
     }
     igmItemSelector (value) {
         return $$('.inventory_item_img')[value]
-    }
-    
+    }    
     descriptionItemSelector (value) {
         return $$('.inventory_item_desc')[value]
     }

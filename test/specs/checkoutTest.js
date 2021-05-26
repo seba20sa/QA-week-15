@@ -2,6 +2,7 @@ const LoginPage = require('../pageobjects/login.page');
 const InventoryPage = require('../pageobjects/inventory.page');
 const CartPage = require('../pageobjects/cart.page');
 const CheckoutPage = require('../pageobjects/checkout.page');
+const cartPage = require('../pageobjects/cart.page');
 describe ('Tests performed to the checkout step 1,2 and final sections',  () => {    
     /*URLs to perform the test*/
     const urlLogin = 'https://www.saucedemo.com/';
@@ -87,7 +88,14 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTax).toHaveText("Tax: $2.40");
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $32.39");
             });
-            it('Click Finish on checkout 2', () => {
+            it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.click();
+                expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.click();
+                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
+            });
+            it('Click finish on checkout 2', () => {
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    

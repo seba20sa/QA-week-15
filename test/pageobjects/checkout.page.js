@@ -57,7 +57,7 @@ class CheckoutPage {
     get sumaryTax () { return $('//*[@id="checkout_summary_container"]/div/div[2]/div[6]') }
     get sumaryTotal () { return $('.summary_total_label') }
     get finishBtn () { return $('#finish') }
-    get cartCancel () { return $('.cart_cancel_link').$('#cancel') }
+    get cancelCheckoutTwo () { return $('.cart_cancel_link') }
     /*Final part*/
     get completeTitle()  { return $('.title') }
     get completeHeader ()  { return $('h2') }

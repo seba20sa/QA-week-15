@@ -11,8 +11,7 @@ describe ('CART page tests',  () => {
         beforeAll('Login with standard user', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-        });
-                          
+        });                          
         describe ('Tests performed from BACK-PACK item from the cart page', () => {
             beforeAll('From the inventory page add the item to the cart and access the cart', () =>{
                 InventoryPage.addBackPackToCart.click();            
