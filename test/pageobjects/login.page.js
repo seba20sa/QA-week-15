@@ -1,15 +1,11 @@
 class LoginPage {
-    /*GETTERS*/    
-    get loginLogo () { return $('.login-logo') }    
-    /*Form */
+    /*GETTERS*/  
     get userNameInput () { return $('#user-name') }
     get passwordInput () { return $('#password') }
     get errorMessageContainer () { return $('.error-message-container') }    
-    get wrongUserInput () { return $('.fa-times-circle') }    
+    get wrongUserInput () { return $$('.fa-times-circle') }    
     get cleanErrorMessage () { return $('.error-button') }    
-    get loginBtn () { return $('#login-button') }       
-    get userNameCredentials () { return $('#login_credentials') }
-    get passwordCredentials () { return $('.login_password') }       
+    get loginBtn () { return $('#login-button') }
     /*SETTERS*/
     setUserName (username) {
         this.userNameInput.setValue(username);
@@ -18,16 +14,10 @@ class LoginPage {
     setPassword (password) {
         this.passwordInput.setValue(password);
         browser.keys('Tab');        
-    }      
+    }    
     /* METHODS */
     cleanErrorMessages () {
         this.cleanErrorMessage.click();
-    }
-    deleteUserNameInput () {
-        this.deleteUserNameInput.click();
-    }
-    deleteUserNameInput () {
-        this.deletePasswordInput.click();
     }
     testLogin (username, password) {
         this.setUserName(username);
