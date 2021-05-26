@@ -63,7 +63,7 @@ describe ('INVENTORY page testing',  () => {
                     expect(InventoryPage.priceItemSelector(3)).toHaveText("$15.99");
                     expect(InventoryPage.priceItemSelector(4)).toHaveText("$9.99");
                     expect(InventoryPage.priceItemSelector(5)).toHaveText("$7.99");                   
-                });
+                });                
                 it('Price LOW-HIGH OP:2  the prices must be ordered in a ascending fashion', () =>{
                     browser.refresh();
                     InventoryPage.productSorter.click();
@@ -99,7 +99,36 @@ describe ('INVENTORY page testing',  () => {
                     expect(InventoryPage.nameItemSelector(1)).toHaveText("Sauce Labs Bike Light");
                     expect(InventoryPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");                    
                 });
-        });
+            });
+            describe ('Add all items and check if the quantity is reflected on the item counter', () =>{
+                it('From inventory add the items one by one and check the counter on the cart icon', () =>{
+                    InventoryPage.addBackPackToCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("1");
+                    InventoryPage.addLabLightToCart.click();                    
+                    expect(InventoryPage.cartItemsCounter).toHaveText("2");
+                    InventoryPage.addBoltTshirtToCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("3");
+                    InventoryPage.addFleeceJacketToCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("4");
+                    InventoryPage.addOnsieToCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("5");
+                    InventoryPage.addRedShirtToCartOnInventory.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("6");
+                    InventoryPage.removeBackPackFromCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("5");
+                    InventoryPage.removeLabLightFromCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("4");
+                    InventoryPage.removeBoltTshirtsFromCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("3");
+                    InventoryPage.removeFleeceJacketFromCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("2");
+                    InventoryPage.removeOnsieFromCart.click();
+                    expect(InventoryPage.cartItemsCounter).toHaveText("1");
+                    InventoryPage.removeRedShirtFromCartOnInventory.click();
+                    expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();  
+                });
+            });
+        
             describe ('BACKPACK testing', () => {
                 it('Click item  img/name and check it opens the individual item page'
                     +'then open the burger menu, click the ALL ITEMS option and check the url', () => {

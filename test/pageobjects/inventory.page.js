@@ -37,10 +37,14 @@ class InventoryPage {
     get addOnsieToCart () { return $('#add-to-cart-sauce-labs-onesie') }
     get removeOnsieFromCart () { return $('#remove-sauce-labs-onesie') }    
     /*Red shirt ID: 3, img: 10, name: 5, desc: 5, price: 5*/    
-    get addRedShirtToCartOnInventory () { return $$('.btn_primary')[5] }
-    get addRedShirtToCartOnItems () { return $('.btn_primary')  }      
-    get removeRedShirtFromCartOnInventory () { return $$('.btn_secondary')[5]}
-    get removeRedShirtFromCartOnItems  () { return $('.btn_small') }
+    get addRedShirtToCartOnInventory () {
+        return $('//*[@id="add-to-cart-test.allthethings()-t-shirt-(red)"]')
+    }
+    get removeRedShirtFromCartOnInventory () { 
+        return $('//*[@id="remove-test.allthethings()-t-shirt-(red)"]') 
+    }
+    get addRedShirtToCartOnItems () { return $('.btn_primary')  }
+    get removeRedShirtFromCartOnItems  () { return $('.btn_small') } 
     get addRedShirtToCartFromProblemInventory  () { 
         return $('button[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]') 
     }

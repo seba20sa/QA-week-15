@@ -3,8 +3,7 @@
 
 ---
 
-Automation test for the  https://www.saucedemo.com/ URL with the WDIO framework. The test consited of performing separated tests on the different sections of the demo site. The site was divided on 4 sections: Login, Inventory, Cehckout and Cart. We tested the process from logging in, adding products to the cart and to finish the checkout ptocess. In addition to that we tested the 3 users allowed to perform the process: standar user which can complete the whole process, the problem user which encountered issues along the process and finally the glitch user which encountered severe performance issues.  
-
+Automation test for the  https://www.saucedemo.com/ URL with the WDIO framework. The test consited of performing separated tests on the different sections of the demo site. The site was divided on 4 sections: Login, Inventory, Cehckout and Cart. We tested the process from logging in, adding products to the cart and to finish the checkout ptocess. In addition to that we tested the 3 users allowed to perform the process: standar user which can complete the whole process, the problem user which encountered issues along the process and finally the glitch user which encountered severe performance issues.
 
 ---
 
@@ -16,7 +15,6 @@ npx wdio config (local machine, Jasmine, sync, crhomedriver)
 npm install @wdio/sync 
 
 ---
-
 
 ## LOGIN SECTION TESTS
 URL: https://www.saucedemo.com/
@@ -48,6 +46,7 @@ To perform the individual test of the cart section the command is:
 npx wdio run ./wdio.conf.js --spec cartTest.js
 
 ---
+
 ## CHECKOUT SECTION TESTS
 URL: https://www.saucedemo.com/checkout-step-one.html (you must be logged in to work)
 We divided this test in 3 parts: the first checkout menu where the user has to fill in a form, the second checkout menu where the user see the information of the items added to the cart including the the full price of the items added to the cart and finally the "checkout completed" part where the user gets a confirmation of the whole process. We started the test by adding one item from the inventory section, then testing that the information showed at the first checkout section was correct with the item selected and finally we checked that the form got the correct validations (as we did with the login page).
@@ -56,8 +55,6 @@ After performing that test with the standar user, we repeated the checkout proce
 
 To perform the individual test of the cart section the command is:
 npx wdio run ./wdio.conf.js --spec checkoutTest.js
-
-
 
 ---
 
