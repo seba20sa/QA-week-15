@@ -22,8 +22,8 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
-                " melds uncompromising style with unequaled laptop and tablet protection.");
+                .toHaveText("carry.allTheThings() with the sleek, streamlined Sly "+
+                "Pack that melds uncompromising style with unequaled laptop and tablet protection.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
@@ -50,11 +50,11 @@ describe ('CART page tests',  () => {
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
                 expect(browser).toHaveUrl(urlCart);          
                 expect(CartPage.cartQuantity).toHaveText("1");
-                expect(CartPage.nameItemSelector(0))
-                .toHaveText("Sauce Labs Bike Light");
+                expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Bike Light");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("A red light isn't the desired state in testing but it sure helps when "+
-                "riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.");
+                .toHaveText("A red light isn't the desired state in testing but it sure helps when"
+                +" riding your bike at night. Water-resistant with 3"
+                +" lighting modes, 1 AAA battery included.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$9.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
@@ -83,8 +83,8 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Bolt T-Shirt");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("Get your testing superhero on with the Sauce Labs bolt T-shirt."+
-                " From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.");
+                .toHaveText("Get your testing superhero on with the Sauce Labs bolt T-shirt."
+                +" From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$15.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
@@ -113,9 +113,9 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Fleece Jacket");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("It's not every day that you come across a midweight quarter-zip fleece"+
-                " jacket capable of handling everything from"+
-                " a relaxing day outdoors to a busy day at the office.");
+                .toHaveText("It's not every day that you come across a midweight quarter-zip"
+                +" fleece jacket capable of handling everything from a relaxing"
+                +" day outdoors to a busy day at the office.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$49.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
@@ -144,8 +144,9 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Onesie");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("Rib snap infant onesie for the junior automation engineer in development."+
-                " Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.");
+                .toHaveText("Rib snap infant onesie for the junior automation"
+                +" engineer in development. Reinforced 3-snap bottom closure,"
+                +" two-needle hemmed sleeved and bottom won't unravel.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$7.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
@@ -172,11 +173,13 @@ describe ('CART page tests',  () => {
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
                 expect(browser).toHaveUrl(urlCart);          
                 expect(CartPage.cartQuantity).toHaveText("1");
-                expect(CartPage.nameItemSelector(0))
-                .toHaveText("Test.allTheThings() T-Shirt (Red)");
+                expect(CartPage.nameItemSelector(0)).toHaveText("Test.allTheThings() T-Shirt (Red)");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.");
-                expect(CartPage.priceItemSelector(0)).toHaveText("$15.99");
+                .toHaveText("This classic Sauce Labs t-shirt is perfect to wear when"
+                +" cozying up to your keyboard to automate a few tests."
+                +" Super-soft and comfy ringspun combed cotton.");
+                expect(CartPage.priceItemSelector(0))
+                .toHaveText("$15.99");
             });
             it('Remove item and check the quantity and cart counter ', () => {
                 CartPage.removeRedShirtFromCartOnItems.click();            
@@ -209,8 +212,8 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
-                " melds uncompromising style with unequaled laptop and tablet protection.");
+                .toHaveText("carry.allTheThings() with the sleek, streamlined Sly "+
+                "Pack that melds uncompromising style with unequaled laptop and tablet protection.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             });    
             it('Reset app state from inventory and check quantity and item counter', () => {
@@ -229,11 +232,11 @@ describe ('CART page tests',  () => {
                 it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
                 expect(browser).toHaveUrl(urlCart);          
                 expect(CartPage.cartQuantity).toHaveText("1");
-                expect(CartPage.nameItemSelector(0))
-                .toHaveText("Sauce Labs Bike Light");
+                expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Bike Light");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("A red light isn't the desired state in testing but it sure helps when "+
-                "riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.");
+                .toHaveText("A red light isn't the desired state in testing but it sure helps when"
+                +" riding your bike at night. Water-resistant with 3"
+                +" lighting modes, 1 AAA battery included.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$9.99");
             });        
             it('Reset app state from inventory and check quantity and item counter', () => {
@@ -254,8 +257,9 @@ describe ('CART page tests',  () => {
                 expect(CartPage.cartQuantity).toHaveText("1");
                 expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Onesie");
                 expect(CartPage.descriptionItemSelector(0))
-                .toHaveText("Rib snap infant onesie for the junior automation engineer in development."+
-                " Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.");
+                .toHaveText("Rib snap infant onesie for the junior automation"
+                +" engineer in development. Reinforced 3-snap bottom closure,"
+                +" two-needle hemmed sleeved and bottom won't unravel.");
                 expect(CartPage.priceItemSelector(0)).toHaveText("$7.99");
             });       
             it('Reset app state from inventory and check quantity and item counter', () => {

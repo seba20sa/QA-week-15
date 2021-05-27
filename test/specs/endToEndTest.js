@@ -22,22 +22,20 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
-            expect(CartPage.nameItemSelector(0))
-            .toHaveText(InventoryPage.nameItemSelector(0).getText());
+            expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CartPage.descriptionItemSelector(0))
-            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
-            expect(CartPage.priceItemSelector(0))
-            .toHaveText(InventoryPage.priceItemSelector(0).getText());
+            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
+            " melds uncompromising style with unequaled laptop and tablet protection.");
+            expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             expect(browser).toHaveUrl(urlCheckoutTwo);
-            expect(CheckoutPage.nameItemSelector(0))
-            .toHaveText(InventoryPage.nameItemSelector(0).getText());
+            expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CheckoutPage.descriptionItemSelector(0))
-            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
-            expect(CheckoutPage.priceItemSelector(0))
-            .toHaveText(InventoryPage.priceItemSelector(0).getText());
+            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
+            "that melds uncompromising style with unequaled laptop and tablet protection.");
+            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");
@@ -63,24 +61,21 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
             InventoryPage.shoppingCartLink.click();
-            expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
-            expect(CartPage.nameItemSelector(0))
-            .toHaveText(InventoryPage.nameItemSelector(0).getText());
+            expect(CartPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CartPage.descriptionItemSelector(0))
-            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
-            expect(CartPage.priceItemSelector(0))
-            .toHaveText(InventoryPage.priceItemSelector(0).getText());
+            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
+            " melds uncompromising style with unequaled laptop and tablet protection.");
+            expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             expect(browser).toHaveUrl(urlCheckoutTwo);
-            expect(CheckoutPage.nameItemSelector(0))
-            .toHaveText(InventoryPage.nameItemSelector(0).getText());
+            expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Backpack");
             expect(CheckoutPage.descriptionItemSelector(0))
-            .toHaveText(InventoryPage.descriptionItemSelector(0).getText());
-            expect(CheckoutPage.priceItemSelector(0))
-            .toHaveText(InventoryPage.priceItemSelector(0).getText());
+            .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
+            "that melds uncompromising style with unequaled laptop and tablet protection.");
+            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");

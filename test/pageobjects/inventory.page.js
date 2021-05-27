@@ -53,6 +53,7 @@ class InventoryPage {
     get swagBot  () { return $('.footer_robot').getAttribute('src') }
     get footerCredits () { return $('.footer_copy') }
     /*SETTERS*/
+    
     nameItemSelector (value) {
         return $$('.inventory_item_name')[value]
     }
