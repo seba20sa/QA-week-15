@@ -70,10 +70,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0))
                 .toHaveText("Sauce Labs Backpack");
@@ -108,11 +104,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
@@ -184,10 +175,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0))
                 .toHaveText("Sauce Labs Bike Light");
@@ -223,11 +210,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
@@ -299,10 +281,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0))
                 .toHaveText("Sauce Labs Bolt T-Shirt");
@@ -338,11 +316,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
@@ -414,10 +387,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0))
                 .toHaveText("Sauce Labs Fleece Jacket");
@@ -453,11 +422,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
@@ -529,10 +493,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0)).toHaveText("Sauce Labs Onesie");
                 expect(CheckoutPage.descriptionItemSelector(0))
@@ -566,11 +526,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
@@ -642,10 +597,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });         
         });
         describe ('Checkout PART TWO', () => {
-            beforeAll('Access the PART TWO', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                browser.pause(1000);
-            });
             it('Check item info  and quantity displayed correctly', () => {
                 expect(CheckoutPage.nameItemSelector(0))
                 .toHaveText("Test.allTheThings() T-Shirt (Red)");
@@ -680,11 +631,6 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             });    
         });
         describe ('Checkout COMPLETE', () => {
-            beforeAll('Access the FINISH part', () => {
-                CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
-                CheckoutPage.finishBtn.click();
-                browser.pause(1000);
-            });
             it('Check COMPLETE title, img and description', () => {
                 expect(CheckoutPage.completeTitle).toHaveText("CHECKOUT: COMPLETE!");
                 expect(CheckoutPage.completeHeader).toHaveText("THANK YOU FOR YOUR ORDER");
