@@ -12,10 +12,14 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
     const urlCheckoutComplete = 'https://www.saucedemo.com/checkout-complete.html'; 
     //ITEMS
     const itemUrlFour = 'https://www.saucedemo.com/inventory-item.html?id=4';
-    describe('STANDAR USER BACKPACK item', () =>{
+        
+    describe('E2E test for GLITCH USER ', () =>{
         beforeAll('Login with standar user', () =>{
             browser.url(urlLogin);
-            LoginPage.testLogin('standard_user', 'secret_sauce');
+            LoginPage.testLogin('performance_glitch_user', 'secret_sauce');
+            browser.setTimeout({
+                'pageLoad': 5000,
+            });
         });
         it('E2E not clicking on the individual item', () =>{
             InventoryPage.addBackPackToCart.click();
@@ -51,7 +55,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
-            CheckoutPage.backHome.click();            
+            CheckoutPage.backHome.click();
+            browser.setTimeout({
+                'pageLoad': 5000,
+            });            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
@@ -92,11 +99,13 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
-            CheckoutPage.backHome.click();            
+            CheckoutPage.backHome.click();
+            browser.setTimeout({
+                'pageLoad': 5000,
+            });            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-        });  
-    });    
-     
+        });        
+    }); 
 });
