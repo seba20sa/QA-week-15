@@ -35,7 +35,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.descriptionItemSelector(0))
             .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack "+
             "that melds uncompromising style with unequaled laptop and tablet protection.");
-            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");
+            expect(CheckoutPage.priceItemSelector(0)).toHaveText("$29.99");ö
             expect(CheckoutPage.cartQuantity).toHaveText("1");
             expect(CheckoutPage.sumaryInfoLevelPaymentInformation)
             .toHaveText("Payment Information:");
@@ -97,8 +97,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });  
-    });
-    
+    });    
     describe('E2E test for GLITCH USER ', () =>{
         beforeAll('Login with standar user', () =>{
             browser.url(urlLogin);
@@ -192,7 +191,6 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
-        });
-        
+        });        
     }); 
 });
