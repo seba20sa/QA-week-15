@@ -13,7 +13,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
     //ITEMS
     const itemUrlFour = 'https://www.saucedemo.com/inventory-item.html?id=4';
         
-    describe('E2E test for GLITCH USER ', () =>{
+    describe('E2E test for GLITCH USER BACKPACK', () =>{
         beforeAll('Login with standar user', () =>{
             browser.url(urlLogin);
             LoginPage.testLogin('performance_glitch_user', 'secret_sauce');
@@ -107,5 +107,5 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });        
-    }); 
+    });     
 });
