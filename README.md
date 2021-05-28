@@ -36,6 +36,9 @@ From the inventory section we performed the same tests as cited before, but usin
 To perform the individual test of the inventory section the command is:
 npx wdio run ./wdio.conf.js --spec inventoryTest.js
 
+To perform the individual test of the inventory section the with the problem_user credentials the command is:
+npx wdio run ./wdio.conf.js --spec probUsInventoryTest.js
+
 ---
 
 ## CART SECTION TESTS
@@ -44,6 +47,9 @@ We performed a test involving adding an item from the inventory page and then ac
 
 To perform the individual test of the cart section the command is:
 npx wdio run ./wdio.conf.js --spec cartTest.js
+
+To perform the individual test of the cart section  with the problem_user credentials the command is:
+npx wdio run ./wdio.conf.js --spec probUsCartTest.js
 
 ---
 
@@ -56,6 +62,20 @@ After performing that test with the standar user, we repeated the checkout proce
 To perform the individual test of the cart section the command is:
 npx wdio run ./wdio.conf.js --spec checkoutTest.js
 
+To perform the individual test of the cart section with the problem_user credentials the command is:
+npx wdio run ./wdio.conf.js --spec probUsCheckoutTest.js
+
+
 ---
+
+## E2D TESTS
+URL: https://www.saucedemo.com/
+We performed one test from the login section to the checkout complete section and back to home with all the items individually and all seix combined. We also performed the same test with the glitched user and tested the load time during the sections where we determined manually that it took 5000 ms to load. As we determined on a previous test the problem user was not able to complete the checkout process due to critical bug on the checkout section 2. 
+
+To perform the individual test for  the E2E process  the command is:
+npx wdio run ./wdio.conf.js --spec endToEndTest.js
+
+To perform the individual test for  the E2E process with the glitched user credentials the command is:
+npx wdio run ./wdio.conf.js --spec glitchbUsEndToEndTest.js
 
 © Sebastian Sileoni seba20sa@gmail.com
