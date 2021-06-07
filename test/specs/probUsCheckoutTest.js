@@ -19,8 +19,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addBackPackToCart.click();            
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addBackPackToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                
@@ -56,8 +59,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addLabLightToCart.click();            
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addLabLightToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                
@@ -93,8 +99,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addBoltTshirtToCart.click();            
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });           
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                
@@ -130,8 +139,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addFleeceJacketToCart.click();            
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });  
+            InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });              
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });  
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                
@@ -167,8 +179,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addOnsieToCart.click();            
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 }); 
+            InventoryPage.addOnsieToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });             
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 }); 
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                
@@ -204,8 +219,11 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
             LoginPage.testLogin('problem_user', 'secret_sauce');
             InventoryPage.burgerMenuOption(InventoryPage.resetAppStateBtn);
             browser.refresh();
-            InventoryPage.addRedShirtToCartFromProblemInventory.click();            
+            InventoryPage.addRedShirtToCartFromProblemInventory.waitForClickable({ timeout: 3000 }); 
+            InventoryPage.addRedShirtToCartFromProblemInventory.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });           
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 }); 
             CartPage.checkOutBtn.click();            
         });        
         describe('Form inputs test', () =>{                

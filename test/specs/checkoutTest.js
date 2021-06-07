@@ -16,16 +16,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-            InventoryPage.addBackPackToCart.click();            
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addBackPackToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -92,13 +97,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $32.39");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -112,6 +121,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });
@@ -121,16 +131,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-            InventoryPage.addLabLightToCart.click();            
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addLabLightToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -198,13 +213,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $10.79");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -218,6 +237,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });
@@ -227,16 +247,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-            InventoryPage.addBoltTshirtToCart.click();            
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });           
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -304,13 +329,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -324,6 +353,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });
@@ -333,16 +363,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-            InventoryPage.addFleeceJacketToCart.click();            
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -410,13 +445,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $53.99");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -430,6 +469,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });
@@ -439,16 +479,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
-            InventoryPage.addOnsieToCart.click();            
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
+            InventoryPage.addOnsieToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -514,13 +559,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $8.63");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -534,6 +583,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });
@@ -543,16 +593,21 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
         beforeAll('Enter the checkout page', () => {
             browser.url(urlLogin);
             LoginPage.testLogin('standard_user', 'secret_sauce');
+            InventoryPage.addRedShirtToCartFromProblemInventory.waitForClickable({ timeout: 3000 });
             InventoryPage.addRedShirtToCartFromProblemInventory.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
         });
         describe('Links and fuctionality tests', () =>{
             it('Cancel checkout, then go back to the checkout url for the next tests', () => {
+                CheckoutPage.cancelCheckout.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckout.click();
                 expect(browser).toHaveUrl(urlCart);            
             });
             it('Click the cart icon', () => {
+                CheckoutPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 CheckoutPage.shoppingCartLink.click();
                 expect(browser).toHaveUrl(urlCart);
                 browser.url(urlCheckout);
@@ -619,13 +674,17 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             });
             it('Click cancel from checkout 2 then from inventory go back to checkout 2', () => {
+                CheckoutPage.cancelCheckoutTwo.waitForClickable({ timeout: 3000 });
                 CheckoutPage.cancelCheckoutTwo.click();
                 expect(browser).toHaveUrl(urlInventory);
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();
+                CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
                 CartPage.checkOutBtn.click();
                 CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
             });
             it('Click finish on checkout 2', () => {
+                CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
                 CheckoutPage.finishBtn.click();
                 expect(browser).toHaveUrl(urlCheckoutComplete);
             });    
@@ -639,6 +698,7 @@ describe ('Tests performed to the checkout step 1,2 and final sections',  () => 
                 expect(CheckoutPage.ponyExpress).toBe(ponyExpressSource);
             });
             it('Click BACK HOME', () => {
+                CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
                 CheckoutPage.backHome.click();
                 expect(browser).toHaveUrl(urlInventory)
             });

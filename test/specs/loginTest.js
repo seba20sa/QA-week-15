@@ -13,6 +13,7 @@ describe (
     describe ('User name field testing', () => {
         it('Empty username check error message and error icons', () => {            
             LoginPage.setUserName();
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -20,6 +21,7 @@ describe (
         });
         it('Username: undefined', () => {            
             LoginPage.setUserName(undefined);
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -27,6 +29,7 @@ describe (
         });  
         it('Username not found on the valid credentials list', () => {            
             LoginPage.setUserName('asddassda');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -34,8 +37,10 @@ describe (
         });
         it('Using invalid credentials and cleaning the error message log', () =>{
             LoginPage.setUserName('asddassda');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
+            LoginPage.cleanErrorMessage.waitForClickable({ timeout: 3000 });
             LoginPage.cleanErrorMessage.click();
             expect(LoginPage.wrongUserInput).not.toBeDisplayed();
             expect(LoginPage.errorMessageContainer).toHaveText("");
@@ -44,6 +49,7 @@ describe (
     describe ('password field testing', () => {        
         it('empty password', () => {                                   
             LoginPage.setPassword();
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -51,6 +57,7 @@ describe (
         });
         it('undefined password', () => {            
             LoginPage.setPassword(undefined);
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -63,6 +70,7 @@ describe (
         });       
         it('empty username and empty password', () => {                        
             LoginPage.testLogin('', '');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -71,6 +79,7 @@ describe (
         });
         it('valid username and empty password', () => {            
             LoginPage.testLogin('standard_user', '');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -79,6 +88,7 @@ describe (
         });
         it('empty username and credited password', () => {            
             LoginPage.testLogin('', 'secret_sauce');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -88,6 +98,7 @@ describe (
         });        
         it('invalid username and invalid password', () => {            
             LoginPage.testLogin('user', 'password123');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)
@@ -98,6 +109,7 @@ describe (
         it('locked user with correct password we stay on the'+
             'login page and get an error message', () => {            
             LoginPage.testLogin('locked_out_user', 'secret_sauce');
+            LoginPage.loginBtn.waitForClickable({ timeout: 3000 });
             LoginPage.loginBtn.click();
             expect(LoginPage.wrongUserInput).toBeDisplayed();
             expect(LoginPage.errorMessageContainer)

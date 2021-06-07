@@ -66,11 +66,17 @@ describe ('INVENTORY page testing',  () => {
         });
         it('Test for ADD links for all items, check which work and which not'+
         'then check which REMOVE-LINKS buttons do not work',() =>{
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addBackPackToCart.click();
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addLabLightToCart.click();
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addOnsieToCart.click();
+            InventoryPage.addRedShirtToCartFromProblemInventory.waitForClickable({ timeout: 3000 }); 
             InventoryPage.addRedShirtToCartFromProblemInventory.click();
             expect(InventoryPage.removeBoltTshirtsFromCart).not.toBeDisplayed();
             expect(InventoryPage.removeFleeceJacketFromCart).not.toBeDisplayed();
@@ -78,32 +84,45 @@ describe ('INVENTORY page testing',  () => {
             expect(InventoryPage.removeOnsieFromCart).toBeDisplayed();
             expect(InventoryPage.removeLabLightFromCart).toBeDisplayed();
             expect(InventoryPage.removeBackPackFromCart).toBeDisplayed();
+            InventoryPage.removeOnsieFromCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.removeOnsieFromCart.click();
+            InventoryPage.removeLabLightFromCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.removeLabLightFromCart.click();
+            InventoryPage.removeBackPackFromCart.waitForClickable({ timeout: 3000 }); 
             InventoryPage.removeBackPackFromCart.click();
             expect(InventoryPage.addOnsieToCart).not.toBeDisplayed();
             expect(InventoryPage.addLabLightToCart).not.toBeDisplayed();
             expect(InventoryPage.addBackPackToCart).not.toBeDisplayed();
         });
         it('Test name links to check if they show the right item', () =>{
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFive);
+            InventoryPage.backToProducts.waitForClickable({ timeout: 3000 }); 
             InventoryPage.backToProducts.click();
+            InventoryPage.nameItemSelector(1).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(1).click();
             expect(browser).toHaveUrl(itemUrlOne);
+            InventoryPage.backToProducts.waitForClickable({ timeout: 3000 }); 
             InventoryPage.backToProducts.click();
+            InventoryPage.nameItemSelector(2).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(2).click();                
             expect(browser).toHaveUrl(itemUrlTwo);
+            InventoryPage.backToProducts.waitForClickable({ timeout: 3000 }); 
             InventoryPage.backToProducts.click();
+            InventoryPage.nameItemSelector(3).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(3).click();
             expect(browser).toHaveUrl(itemUrlBroken);
+            InventoryPage.backToProducts.waitForClickable({ timeout: 3000 }); 
             InventoryPage.backToProducts.click();
+            InventoryPage.nameItemSelector(4).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(4).click();
             expect(browser).toHaveUrl(itemUrlThree);
+            InventoryPage.backToProducts.waitForClickable({ timeout: 3000 }); 
             InventoryPage.backToProducts.click();
+            InventoryPage.nameItemSelector(5).waitForClickable({ timeout: 3000 }); 
             InventoryPage.nameItemSelector(5).click();
             expect(browser).toHaveUrl(itemUrlFour);
         });
     });
-    
 });

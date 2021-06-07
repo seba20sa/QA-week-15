@@ -14,7 +14,9 @@ describe ('CART page tests',  () => {
         });                          
         describe ('Tests performed from BACK-PACK item from the cart page', () => {
             beforeAll('From the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addBackPackToCart.click();            
+                InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addBackPackToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
                 InventoryPage.shoppingCartLink.click();            
             });         
             it('Check if the URL, item quantity and item info are correct', () => {
@@ -27,11 +29,12 @@ describe ('CART page tests',  () => {
                 expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 });     
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
-                browser.pause(1000);
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeBackPackFromCart.waitForClickable({ timeout: 3000 });   
                 CartPage.removeBackPackFromCart.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -44,7 +47,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from BIKE-LIGHT item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addLabLightToCart.click();            
+                InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });   
+                InventoryPage.addLabLightToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });   
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -58,11 +63,12 @@ describe ('CART page tests',  () => {
                 expect(CartPage.priceItemSelector(0)).toHaveText("$9.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 }); 
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
-                browser.pause(1000);
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeLabLightFromCart.waitForClickable({ timeout: 3000 }); 
                 CartPage.removeLabLightFromCart.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -75,7 +81,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from BOLT SHIRT item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addBoltTshirtToCart.click();            
+                InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 }); 
+                InventoryPage.addBoltTshirtToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 }); 
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -88,11 +96,12 @@ describe ('CART page tests',  () => {
                 expect(CartPage.priceItemSelector(0)).toHaveText("$15.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 }); 
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
-                browser.pause(1000);
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeBoltTshirtsFromCart.waitForClickable({ timeout: 3000 }); 
                 CartPage.removeBoltTshirtsFromCart.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -105,7 +114,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from FLEECE JACKET item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addFleeceJacketToCart.click();            
+                InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addFleeceJacketToCart.click()
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -119,11 +130,12 @@ describe ('CART page tests',  () => {
                 expect(CartPage.priceItemSelector(0)).toHaveText("$49.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 });
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
-                browser.pause(1000);
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeFleeceJacketFromCart.waitForClickable({ timeout: 3000 });
                 CartPage.removeFleeceJacketFromCart.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -136,7 +148,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from ONSIE item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addOnsieToCart.click();            
+                InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addOnsieToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -150,11 +164,12 @@ describe ('CART page tests',  () => {
                 expect(CartPage.priceItemSelector(0)).toHaveText("$7.99");
             });        
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 });  
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
-                browser.pause(1000);
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeOnsieFromCart.waitForClickable({ timeout: 3000 }); 
                 CartPage.removeOnsieFromCart.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
@@ -167,7 +182,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from RED SHIRT item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addRedShirtToCartOnInventory.click();                     
+                InventoryPage.addRedShirtToCartOnInventory.waitForClickable({ timeout: 3000 }); 
+                InventoryPage.addRedShirtToCartOnInventory.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });                      
                 InventoryPage.shoppingCartLink.click();                          
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -182,11 +199,13 @@ describe ('CART page tests',  () => {
                 .toHaveText("$15.99");
             });
             it('Remove item and check the quantity and cart counter ', () => {
+                CartPage.removeRedShirtFromCartOnItems.waitForClickable({ timeout: 3000 }); 
                 CartPage.removeRedShirtFromCartOnItems.click();            
                 expect(CartPage.cartItemsCounter).not.toBeDisplayed();            
                 expect(CartPage.cartQuantity).not.toBeDisplayed();                      
             });
             it('From the cart page click CONTINUE SHOPPING', () => {
+                CartPage.continueShopping.waitForClickable({ timeout: 3000 }); 
                 CartPage.continueShopping.click();
                 expect(browser).toHaveUrl(urlInventory);
             });

@@ -18,7 +18,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBackPackToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -27,6 +29,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
             " melds uncompromising style with unequaled laptop and tablet protection.");
             expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -49,17 +52,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $2.40");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $32.39");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBackPackToCart.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -68,6 +76,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("carry.allTheThings() with the sleek, streamlined Sly Pack that"+
             " melds uncompromising style with unequaled laptop and tablet protection.");
             expect(CartPage.priceItemSelector(0)).toHaveText("$29.99");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -90,8 +99,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $2.40");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $32.39");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -104,7 +115,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addLabLightToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -113,6 +126,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("A red light isn't the desired state in testing but it sure "
             +"helps when riding your bike at night. Water-resistant"
             +" with 3 lighting modes, 1 AAA battery included.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -136,17 +150,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $0.80");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $10.79");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addLabLightToCart.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -155,6 +174,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("A red light isn't the desired state in testing but it sure "
             +"helps when riding your bike at night. Water-resistant"
             +" with 3 lighting modes, 1 AAA battery included.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -178,8 +198,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $0.80");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $10.79");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -192,7 +214,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -200,6 +224,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CartPage.descriptionItemSelector(0))
             .toHaveText("Get your testing superhero on with the Sauce Labs bolt T-shirt."
             +" From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -222,17 +247,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $1.28");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -240,6 +270,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CartPage.descriptionItemSelector(0))
             .toHaveText("Get your testing superhero on with the Sauce Labs bolt T-shirt."
             +" From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -262,8 +293,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $1.28");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -276,7 +309,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -285,6 +320,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("It's not every day that you come across a midweight quarter-zip"
             +" fleece jacket capable of handling everything from a relaxing day"
             +" outdoors to a busy day at the office.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -308,17 +344,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $4.00");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $53.99");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -327,6 +368,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("It's not every day that you come across a midweight quarter-zip"
             +" fleece jacket capable of handling everything from a relaxing day"
             +" outdoors to a busy day at the office.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -350,8 +392,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $4.00");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $53.99");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -364,7 +408,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addOnsieToCart.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -373,6 +419,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("Rib snap infant onesie for the junior automation"
             +" engineer in development. Reinforced 3-snap bottom closure,"
             +" two-needle hemmed sleeved and bottom won't unravel.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -396,17 +443,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $0.64");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $8.63");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addOnsieToCart.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -415,6 +467,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("Rib snap infant onesie for the junior automation"
             +" engineer in development. Reinforced 3-snap bottom closure,"
             +" two-needle hemmed sleeved and bottom won't unravel.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -438,8 +491,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $0.64");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $8.63");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -452,7 +507,9 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addRedShirtToCartOnInventory.waitForClickable({ timeout: 3000 });
             InventoryPage.addRedShirtToCartOnInventory.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -462,6 +519,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("This classic Sauce Labs t-shirt is perfect"
             +" to wear when cozying up to your keyboard to"
             +" automate a few tests. Super-soft and comfy ringspun combed cotton.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -486,17 +544,22 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $1.28");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
             expect(InventoryPage.cartItemsCounter).not.toBeDisplayed();
         });
         it('E2E  clicking on the individual item prior accessing the CART', () =>{
+            InventoryPage.addRedShirtToCartOnInventory.waitForClickable({ timeout: 3000 });
             InventoryPage.addRedShirtToCartOnInventory.click();
+            InventoryPage.nameItemSelector(0).waitForClickable({ timeout: 3000 });
             InventoryPage.nameItemSelector(0).click();
             expect(browser).toHaveUrl(itemUrlFour);
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartQuantity).toHaveText("1");
@@ -506,6 +569,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("This classic Sauce Labs t-shirt is perfect"
             +" to wear when cozying up to your keyboard to"
             +" automate a few tests. Super-soft and comfy ringspun combed cotton.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -530,8 +594,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $1.28");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $17.27");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();
@@ -544,12 +610,19 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             LoginPage.testLogin('standard_user', 'secret_sauce');
         });
         it('E2E not clicking on the individual item', () =>{
+            InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBackPackToCart.click();
+            InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addLabLightToCart.click();
+            InventoryPage.addBoltTshirtToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addBoltTshirtToCart.click();
+            InventoryPage.addFleeceJacketToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addFleeceJacketToCart.click();
+            InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
             InventoryPage.addOnsieToCart.click();
+            InventoryPage.addRedShirtToCartOnInventory.waitForClickable({ timeout: 3000 });
             InventoryPage.addRedShirtToCartOnInventory.click();
+            InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });
             InventoryPage.shoppingCartLink.click();
             expect(browser).toHaveUrl(urlCart);
             expect(CartPage.cartItemsCounter).toHaveText("6");
@@ -582,6 +655,7 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             .toHaveText("This classic Sauce Labs t-shirt is perfect"
             +" to wear when cozying up to your keyboard to"
             +" automate a few tests. Super-soft and comfy ringspun combed cotton.");
+            CartPage.checkOutBtn.waitForClickable({ timeout: 3000 });
             CartPage.checkOutBtn.click();
             expect(browser).toHaveUrl(urlCheckout);
             CheckoutPage.testCheckoutForm('Sebastian', 'Sileoni', '2000');
@@ -634,8 +708,10 @@ describe('COMPLETE test from login to checkout complete for all items', () =>{
             expect(CheckoutPage.sumaryTax).toHaveText("Tax: $10.40");
             expect(CheckoutPage.sumaryTotal).toHaveText("Total: $140.34");
             expect(CheckoutPage.cartQuantity).toHaveText("1");
+            CheckoutPage.finishBtn.waitForClickable({ timeout: 3000 });
             CheckoutPage.finishBtn.click();
             expect(browser).toHaveUrl(urlCheckoutComplete);
+            CheckoutPage.backHome.waitForClickable({ timeout: 3000 });
             CheckoutPage.backHome.click();            
             expect(browser).toHaveUrl(urlInventory);
             expect(InventoryPage.removeBackPackFromCart).not.toBeDisplayed();

@@ -14,7 +14,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from BACK-PACK item from the cart page', () => {
             beforeAll('From the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addBackPackToCart.click();            
+                InventoryPage.addBackPackToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addBackPackToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct', () => {
@@ -36,7 +38,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from BIKE-LIGHT item from the cart page', () => {
             beforeAll('From the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addLabLightToCart.click();            
+                InventoryPage.addLabLightToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addLabLightToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
                 InventoryPage.shoppingCartLink.click();            
             });                
                 it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
@@ -59,7 +63,9 @@ describe ('CART page tests',  () => {
         });
         describe ('Tests performed from ONSIE item from the cart page', () => {
             beforeAll('from the inventory page add the item to the cart and access the cart', () =>{
-                InventoryPage.addOnsieToCart.click();            
+                InventoryPage.addOnsieToCart.waitForClickable({ timeout: 3000 });
+                InventoryPage.addOnsieToCart.click();
+                InventoryPage.shoppingCartLink.waitForClickable({ timeout: 3000 });            
                 InventoryPage.shoppingCartLink.click();            
             });                
             it('Check if the URL, item quantity and item info are correct selector is ZERO', () => {
